@@ -2841,51 +2841,52 @@ document.getElementById("navLinks")
    15 Jordan Archaeological Sites
    Change every 4 seconds
    ========================================================= */
-const madabaImages = [
-    // كنيسة القديس جورج - كنيسة الخارطة
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Facade_of_St._George_Church_in_Madaba_P1090160.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Facade_of_St._George_Church_in_Madaba_P1090161.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Church_of_the_Map_Madaba_JO_1.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Church_of_the_Map_Madaba_JO_2.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Interior_church-of-the-map.jpg",
+const heroSlideImages = [
+    // 1. كنيسة الرسل - مادبا
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Church_of_the_Apostles_%28Madaba%29.jpg",
 
-    // خريطة مادبا الفسيفسائية
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_Mosaic_Map_depicting_Jerusalem_and_the_Dead_Sea_Church_of_St_George.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byzantine_floor_mosaic_map_at_St._George_Church_Madaba_P1090145.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byzantine_floor_mosaic_map_at_St._George_Church_Madaba_P1090104.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byzantine_floor_mosaic_map_at_St._George_Church_Madaba_P1090114.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byzantine_floor_mosaic_map_at_St._George_Church_Madaba_P1090157.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byzantine_floor_mosaic_map_at_St._George_Church_Madaba_P1090158.JPG",
+    // 2. كنيسة الرسل - صورة أخرى
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_Apostles_Church_JO_1.jpg",
 
-    // كنيسة الرسل
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/20100924_madaba77.JPG",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/20100924_madaba78a.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/20100924_madaba79a.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/20100924_madaba84a.jpg",
+    // 3. فسيفساء كنيسة الرسل
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Church_of_the_Apostles_%28Madaba%29_Mosaic_Close_Up.jpg",
 
-    // الحديقة الأثرية
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/109_Roman_Road_at_madaba.jpg",
+    // 4. كنيسة الرسل - الداخل
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_Apostelkirche_Innen_2.JPG",
+
+    // 5. الحديقة الأثرية في مادبا
     "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_Archaeological_Park_view_1469.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_church_12.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_church_13.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_church_2.jpg",
 
-    // الشارع الروماني
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan_(institute).jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan_(Mosaic_panels).jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan_(remains_of_columns).jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan_(remains_of_columns)2.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan1.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan2.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan3.jpg",
+    // 6. بانوراما الحديقة الأثرية
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_Archaeological_park_Panorama_JO.jpg",
 
-    // فسيفساء وآثار مادبا
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mosaic_in_Madaba.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba_mosaic_from_Hall_of_the_Seasons_1407.jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba,_Jordan_(38429029535).jpg",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madaba,_Jordan_(38429057605).jpg"
+    // 7. أرضية فسيفسائية - الحديقة الأثرية
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mosaic_floor_Madaba_Archeological_park.jpg",
+
+    // 8. الشارع الروماني - مادبا
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan_%28Mosaic_panels%29.jpg",
+
+    // 9. أعمدة الشارع الروماني
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Roman_Street_Madaba-Jordan_%28remains_of_columns%29.jpg",
+
+    // 10. جبل نيبو
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount_Nebo%2C_Jordan.jpg",
+
+    // 11. جبل نيبو - صورة أخرى
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount_Nebo_1.jpg",
+
+    // 12. إطلالة جبل نيبو
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/View_from_Mount_Nebo_%28Jordan%29.JPG",
+
+    // 13. مكاور - محافظة مادبا
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Machaerus%2C_Jordan_%2834163138844%29.jpg",
+
+    // 14. مكاور - صورة أخرى
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Machaerus%2C_Jordan_%2835007094725%29.jpg",
+
+    // 15. أم الرصاص - محافظة مادبا
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Umm_ar-Rasas%2C_ruin_near_Stylite_tower%2C_Jordan.jpg"
 ];
-
 const heroSlider = document.getElementById("heroSlider");
 
 const heroSlides = heroSlideImages.map(imageUrl => {
