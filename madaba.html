@@ -1,0 +1,2929 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الحجر يتحدث بتاريخ الأردن | Jordan’s History</title>
+
+<meta name="description" content="Explore the archaeological treasures and heritage of Madaba, Jordan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#7a5637;
+    --primary-dark:#4d3422;
+    --secondary:#a98255;
+    --green:#536b52;
+    --cream:#f7f3ed;
+    --sand:#e8dccb;
+    --white:#ffffff;
+    --dark:#25231f;
+    --gray:#77736d;
+    --light:#fbfaf8;
+    --shadow:0 15px 45px rgba(65,45,25,.12);
+    --radius:22px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Cairo",sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,.93);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.nav-inner{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    color:var(--primary-dark);
+    font-size:20px;
+    white-space:nowrap;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:21px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.nav-links a{
+    font-size:14px;
+    font-weight:600;
+    color:#55504a;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.language-box{
+    position:relative;
+}
+
+.language-select{
+    border:1px solid #ddd5cb;
+    background:white;
+    border-radius:30px;
+    padding:9px 14px;
+    cursor:pointer;
+    color:var(--dark);
+    outline:none;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    padding-top:76px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:#4d3422;
+}
+
+.hero-slider{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+}
+
+.hero-slide{
+    position:absolute;
+    inset:-3%;
+    opacity:0;
+    background:center/cover no-repeat;
+    transform:scale(1.08) translateX(-3%);
+    transition:opacity 0.8s ease,transform 2s ease;
+}
+
+.hero-slide.active{
+    opacity:1;
+    transform:scale(1.05) translateX(3%);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:linear-gradient(90deg,rgba(31,25,18,.82),rgba(31,25,18,.35));
+}
+
+.hero .container{
+    position:relative;
+    z-index:2;
+}
+
+.hero-content{
+    color:white;
+    max-width:720px;
+    padding:100px 0;
+}
+
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:22px;
+    backdrop-filter:blur(8px);
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(45px,7vw,82px);
+    line-height:1.05;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#e4c39b;
+}
+
+.hero p{
+    max-width:620px;
+    font-size:18px;
+    line-height:1.9;
+    color:#eee8df;
+}
+
+.hero-buttons{
+    margin-top:32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:13px 22px;
+    border-radius:12px;
+    border:1px solid transparent;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#fff;
+    color:var(--primary-dark);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border-color:rgba(255,255,255,.5);
+    color:white;
+    background:rgba(255,255,255,.08);
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--primary-dark);
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:95px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 45px;
+}
+
+.eyebrow{
+    color:var(--secondary);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.section-head h2{
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+    margin:10px 0 14px;
+    color:var(--primary-dark);
+}
+
+.section-head p{
+    color:var(--gray);
+    line-height:1.8;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    background:white;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.feature-card{
+    padding:28px;
+    background:var(--cream);
+    border-radius:var(--radius);
+    text-align:center;
+    transition:.35s;
+}
+
+.feature-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.feature-icon{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    background:white;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+    margin:0 auto 17px;
+}
+
+.feature-card h3{
+    margin-bottom:7px;
+    color:var(--primary-dark);
+}
+
+.feature-card p{
+    color:var(--gray);
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:55px;
+    align-items:center;
+}
+
+.about-copy{
+    max-width:680px;
+}
+
+.about-copy h2{
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+    line-height:1.15;
+    color:var(--primary-dark);
+    margin:10px 0 17px;
+}
+
+.about-lead{
+    color:var(--primary-dark);
+    font-size:19px;
+    font-weight:600;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.about-story{
+    display:grid;
+    gap:14px;
+}
+
+.about-story p{
+    color:var(--gray);
+    line-height:1.9;
+}
+
+.about-videos{
+    margin-top:65px;
+}
+
+.about-videos-head{
+    max-width:700px;
+    margin:0 auto 28px;
+    text-align:center;
+}
+
+.about-videos-head h3{
+    font-family:"Playfair Display",serif;
+    color:var(--primary-dark);
+    font-size:32px;
+    margin:9px 0 10px;
+}
+
+.about-videos-head p{
+    color:var(--gray);
+    line-height:1.8;
+}
+
+.about-video-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.about-video-card{
+    overflow:hidden;
+    background:var(--cream);
+    border:1px solid #eee4d8;
+    border-radius:20px;
+    transition:.35s;
+}
+
+.about-video-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.about-video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    display:grid;
+    place-items:center;
+    background:#201d19;
+    overflow:hidden;
+}
+
+.about-video-frame video{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.about-video-number{
+    position:absolute;
+    top:14px;
+    left:14px;
+    z-index:1;
+    min-width:34px;
+    padding:5px 9px;
+    border-radius:20px;
+    background:rgba(255,255,255,.9);
+    color:var(--primary-dark);
+    font-size:12px;
+    font-weight:800;
+    text-align:center;
+}
+
+.about-video-body{
+    padding:18px 20px 20px;
+}
+
+.about-video-body h4{
+    color:var(--primary-dark);
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.about-video-body p{
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.about-highlights{
+    display:grid;
+    gap:14px;
+}
+
+.about-highlight{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:21px;
+    background:var(--cream);
+    border:1px solid #eee4d8;
+    border-radius:18px;
+}
+
+.about-highlight-icon{
+    width:45px;
+    height:45px;
+    flex:0 0 45px;
+    display:grid;
+    place-items:center;
+    background:white;
+    border-radius:14px;
+    font-size:21px;
+}
+
+.about-highlight h3{
+    color:var(--primary-dark);
+    font-size:17px;
+    margin-bottom:4px;
+}
+
+.about-highlight p{
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* ================= SITES ================= */
+
+.sites{
+    background:var(--cream);
+}
+
+.search-area{
+    max-width:650px;
+    margin:0 auto 35px;
+    display:flex;
+    gap:10px;
+}
+
+.search-area input{
+    flex:1;
+    padding:15px 18px;
+    border:1px solid #ddd2c4;
+    border-radius:13px;
+    background:white;
+    outline:none;
+    font-size:15px;
+}
+
+.search-area button{
+    border:0;
+    background:var(--primary);
+    color:white;
+    border-radius:13px;
+    padding:0 20px;
+    cursor:pointer;
+}
+
+.site-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.site-card{
+    background:white;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+    transition:.35s;
+}
+
+.site-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.site-image{
+    height:220px;
+    position:relative;
+    overflow:hidden;
+}
+
+.site-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.site-card:hover .site-image img{
+    transform:scale(1.07);
+}
+
+.site-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:white;
+    color:var(--primary);
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.site-body{
+    padding:22px;
+}
+
+.site-body h3{
+    font-size:21px;
+    margin-bottom:8px;
+    color:var(--primary-dark);
+}
+
+.site-body p{
+    color:var(--gray);
+    font-size:14px;
+    line-height:1.8;
+    min-height:75px;
+}
+
+.site-meta{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:18px;
+    padding-top:15px;
+    border-top:1px solid #eee;
+    color:#777;
+    font-size:12px;
+}
+
+.view-btn{
+    margin-top:16px;
+    width:100%;
+    background:var(--primary);
+    color:white;
+    border:0;
+    padding:12px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* ================= SCANNER ================= */
+
+.scanner{
+    background:white;
+}
+
+.scanner-box{
+    background:linear-gradient(135deg,#f4eee5,#e9dfd0);
+    border-radius:30px;
+    padding:50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.scanner-content h2{
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+    color:var(--primary-dark);
+    margin:10px 0 15px;
+}
+
+.scanner-content p{
+    color:var(--gray);
+    line-height:1.9;
+}
+
+.scanner-steps{
+    margin-top:25px;
+    display:grid;
+    gap:13px;
+}
+
+.scanner-step{
+    display:flex;
+    gap:13px;
+    align-items:center;
+}
+
+.step-number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    display:grid;
+    place-items:center;
+    font-weight:800;
+}
+
+.camera{
+    min-height:350px;
+    background:#201d19;
+    border-radius:25px;
+    display:grid;
+    place-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.camera-frame{
+    width:75%;
+    height:70%;
+    border:2px solid rgba(255,255,255,.75);
+    border-radius:20px;
+    position:relative;
+}
+
+.camera-frame:before,
+.camera-frame:after{
+    content:"";
+    position:absolute;
+    width:45px;
+    height:45px;
+    border-color:#d5af7d;
+}
+
+.camera-frame:before{
+    left:-3px;
+    top:-3px;
+    border-left:4px solid;
+    border-top:4px solid;
+    border-radius:10px 0 0 0;
+}
+
+.camera-frame:after{
+    right:-3px;
+    bottom:-3px;
+    border-right:4px solid;
+    border-bottom:4px solid;
+    border-radius:0 0 10px 0;
+}
+
+.scan-line{
+    position:absolute;
+    width:100%;
+    height:2px;
+    background:#d5af7d;
+    top:50%;
+    animation:scan 2.5s infinite;
+}
+
+@keyframes scan{
+    0%,100%{transform:translateY(-100px)}
+    50%{transform:translateY(100px)}
+}
+
+.camera-text{
+    position:absolute;
+    bottom:28px;
+    color:white;
+    font-size:14px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:25px 0;
+}
+
+.info-item{
+    background:var(--cream);
+    padding:15px;
+    border-radius:14px;
+}
+
+.info-item strong{
+    display:block;
+    color:var(--primary-dark);
+    margin-bottom:4px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:var(--cream);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-card{
+    background:white;
+    padding:30px;
+    border-radius:23px;
+}
+
+.contact-card h3{
+    color:var(--primary-dark);
+    margin-bottom:12px;
+}
+
+.contact-card p{
+    color:var(--gray);
+    line-height:1.8;
+}
+
+.contact-form{
+    display:grid;
+    gap:12px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    border:1px solid #ddd5cb;
+    padding:14px;
+    border-radius:12px;
+    outline:none;
+    resize:none;
+}
+
+.contact-form textarea{
+    height:130px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#201d19;
+    color:white;
+    padding:50px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-col h3{
+    margin-bottom:15px;
+}
+
+.footer-col p,
+.footer-col a{
+    color:#aaa39a;
+    font-size:13px;
+    line-height:2;
+    display:block;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:35px;
+    padding-top:20px;
+    text-align:center;
+    color:#888;
+    font-size:12px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+}
+
+.close-modal{
+    position:absolute;
+    top:15px;
+    right:18px;
+    border:0;
+    background:#f1ece5;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.modal-content img{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+    border-radius:17px;
+    margin-bottom:20px;
+}
+
+.modal-content h2{
+    color:var(--primary-dark);
+    font-family:"Playfair Display",serif;
+    font-size:32px;
+}
+
+.modal-content p{
+    color:var(--gray);
+    line-height:1.9;
+    margin-top:12px;
+}
+
+/* ================= RTL ================= */
+
+[dir="rtl"] .nav-inner{
+    flex-direction:row;
+}
+
+[dir="rtl"] .site-badge{
+    left:auto;
+    right:15px;
+}
+
+[dir="rtl"] .close-modal{
+    right:auto;
+    left:18px;
+}
+
+[dir="rtl"] .about-video-number{
+    left:auto;
+    right:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:76px;
+        left:0;
+        width:100%;
+        background:white;
+        padding:20px;
+        flex-direction:column;
+        align-items:stretch;
+        box-shadow:0 15px 30px rgba(0,0,0,.08);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .site-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .scanner-box,
+    .contact-grid,
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:70px 0;
+    }
+
+    .hero{
+        min-height:90vh;
+    }
+
+    .hero-content{
+        padding:70px 0;
+    }
+
+    .hero h1{
+        font-size:36px !important;
+        line-height:1.2;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section-head h2,
+    .scanner-content h2,
+    .about-copy h2{
+        font-size:34px;
+    }
+
+    .feature-grid,
+    .site-grid,
+    .info-grid,
+    .footer-grid,
+    .about-video-grid{
+        grid-template-columns:1fr;
+    }
+
+    .scanner-box{
+        padding:25px;
+    }
+
+    .camera{
+        min-height:280px;
+    }
+
+    .search-area{
+        flex-direction:column;
+    }
+
+    .search-area button{
+        height:48px;
+    }
+
+    .language-select{
+        max-width:115px;
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+
+    .nav-inner {
+        height: 65px;
+    }
+    
+    .logo {
+        font-size: 16px;
+    }
+    
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 17px;
+    }
+}
+
+
+/* ================= ADS PAGE ================= */
+.ads{background:var(--cream);}
+.ads-head{text-align:center;margin-bottom:35px;}
+.ads-add-card{min-height:250px;border:2px dashed rgba(122,86,55,.38);border-radius:var(--radius);background:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.3s;box-shadow:var(--shadow);}
+.ads-add-card:hover{transform:translateY(-5px);border-color:var(--primary);background:white;}
+.ads-plus{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:white;font-size:48px;font-weight:300;line-height:1;box-shadow:0 12px 30px rgba(77,52,34,.22);}
+.ads-add-label{margin-top:16px;font-size:18px;font-weight:700;color:var(--primary-dark);}
+.ads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px;}
+.ad-card{background:white;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.05);}
+.ad-image{width:100%;height:210px;object-fit:cover;background:var(--sand);}
+.ad-body{padding:22px;}
+.ad-body h3{color:var(--primary-dark);font-family:"Playfair Display",serif;font-size:24px;margin-bottom:8px;}
+.ad-description{color:var(--gray);line-height:1.7;margin-bottom:15px;}
+.ad-meta{display:flex;flex-wrap:wrap;gap:8px;}
+.ad-meta span{background:var(--cream);color:var(--primary-dark);border-radius:999px;padding:6px 10px;font-size:13px;}
+.ad-price{font-weight:800;color:var(--green)!important;}
+.ads-empty{text-align:center;color:var(--gray);margin-top:25px;}
+.ad-modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(28,22,17,.68);backdrop-filter:blur(8px);}
+.ad-modal.show{display:flex;}
+.ad-modal-content{width:min(680px,100%);max-height:90vh;overflow:auto;background:white;border-radius:26px;padding:30px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.28);}
+.ad-modal-content h2{color:var(--primary-dark);font-family:"Playfair Display",serif;font-size:34px;margin-bottom:8px;}
+.ad-modal-content>p{color:var(--gray);margin-bottom:24px;}
+.ad-form{display:grid;gap:14px;}
+.ad-form input,.ad-form textarea{width:100%;border:1px solid #ddd5cb;border-radius:14px;padding:13px 15px;outline:none;font-size:15px;}
+.ad-form textarea{min-height:125px;resize:vertical;}
+.ad-form input:focus,.ad-form textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(122,86,55,.1);}
+.ad-form-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:8px;}
+.ad-close{position:absolute;top:15px;right:18px;width:38px;height:38px;border:0;border-radius:50%;background:var(--cream);color:var(--primary-dark);font-size:24px;cursor:pointer;}
+[dir="rtl"] .ad-close{right:auto;left:18px;}
+@media(max-width:900px){.ads-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.ads-grid{grid-template-columns:1fr;}.ad-modal-content{padding:24px 18px;}.ad-modal-content h2{font-size:28px;padding-right:30px;}[dir="rtl"] .ad-modal-content h2{padding-right:0;padding-left:30px;}}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+<div class="logo-icon">🏛️</div>
+<span data-i18n="brand">الحجر يتحدث بتاريخ الأردن</span>
+</a>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home" data-i18n="navHome">Home</a>
+<a href="#about" data-i18n="navAbout">About</a>
+<a href="#sites" data-i18n="navSites">Sites</a>
+<a href="#ads" data-i18n="navAds">Ads</a>
+<a href="#scanner" data-i18n="navScanner">AR Scanner</a>
+<a href="#contact" data-i18n="navContact">Contact</a>
+
+</nav>
+
+<select class="language-select" id="languageSelect">
+<option value="en">🇬🇧 English</option>
+<option value="ar">🇯🇴 العربية</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="es">🇪🇸 Español</option>
+<option value="de">🇩🇪 Deutsch</option>
+<option value="it">🇮🇹 Italiano</option>
+<option value="tr">🇹🇷 Türkçe</option>
+</select>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main id="home">
+
+<section class="hero">
+
+<div class="hero-slider" id="heroSlider" aria-hidden="true"></div>
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-tag">
+📍 <span data-i18n="heroTag">Madaba, Jordan</span>
+</div>
+
+<h1>
+<span data-i18n="heroTitle">الحجر يتحدث بتاريخ الأردن</span>
+</h1>
+
+<p data-i18n="heroDescription">
+Walk through history, discover ancient mosaics, explore archaeological treasures and experience Madaba through a modern digital journey.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#sites" class="btn btn-primary">
+🏛️ <span data-i18n="exploreBtn">Explore Heritage</span>
+</a>
+
+<a href="#scanner" class="btn btn-outline">
+📷 <span data-i18n="scanBtn">Start AR Experience</span>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow" data-i18n="experienceEyebrow">THE EXPERIENCE</div>
+
+<h2 data-i18n="experienceTitle">
+A New Way to Explore History
+</h2>
+
+<p data-i18n="experienceDescription">
+الحجر يتحدث بتاريخ الأردن combines archaeological information with digital technology to create a memorable experience for every visitor.
+</p>
+
+</div>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="feature-icon">🗺️</div>
+<h3 data-i18n="feature1Title">Explore</h3>
+<p data-i18n="feature1Text">Discover the most important archaeological sites in Madaba.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">📱</div>
+<h3 data-i18n="feature2Title">Scan</h3>
+<p data-i18n="feature2Text">Scan QR codes at historical locations to instantly access information.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🌐</div>
+<h3 data-i18n="feature3Title">7 Languages</h3>
+<p data-i18n="feature3Text">Enjoy the entire website in your preferred language.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🥽</div>
+<h3 data-i18n="feature4Title">AR Experience</h3>
+<p data-i18n="feature4Text">Experience directions and digital information through your camera.</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-copy">
+
+<div class="eyebrow" data-i18n="aboutEyebrow">ABOUT الحجر يتحدث بتاريخ الأردن</div>
+
+<h2 data-i18n="aboutTitle">
+A homeland told through stone
+</h2>
+
+<p class="about-lead" data-i18n="aboutLead">
+When Jordanian stone speaks, it tells the story of a homeland born from glory and purpose—a homeland guided by the Hashemites with integrity and devotion.
+</p>
+
+<div class="about-story">
+<p data-i18n="aboutParagraph1">
+From Madaba, the bride of Jordanian tourism, and from the depth of our pure soil, the project “الحجر يتحدث بتاريخ الأردن” begins as a digital and national initiative. It affirms that our national identity reaches beyond tourism and heritage, rooted in the enduring values of the Amman Message: moderation, fraternity and shared humanity.
+</p>
+
+<p data-i18n="aboutParagraph2">
+As we take this step, we draw inspiration from the historic Hashemite custodianship of the Islamic and Christian holy sites in Al-Quds Al-Sharif, carried by His Majesty King Abdullah II Ibn Al Hussein with wisdom and courage. His continued support for national and creative initiatives gives our young women and men the confidence to create and innovate, knowing that serving Jordan and its heritage is a natural extension of the dignity and honor carried by the Hashemite family.
+</p>
+</div>
+
+</div>
+
+<div class="about-highlights">
+
+<div class="about-highlight">
+<div class="about-highlight-icon">🏺</div>
+<div>
+<h3 data-i18n="aboutHighlight1Title">A national identity</h3>
+<p data-i18n="aboutHighlight1Text">Our heritage is more than places to visit; it is a living story of belonging.</p>
+</div>
+</div>
+
+<div class="about-highlight">
+<div class="about-highlight-icon">🧭</div>
+<div>
+<h3 data-i18n="aboutHighlight2Title">A living responsibility</h3>
+<p data-i18n="aboutHighlight2Text">The project connects Madaba's stones to Jordan's enduring message and identity.</p>
+</div>
+</div>
+
+<div class="about-highlight">
+<div class="about-highlight-icon">🌍</div>
+<div>
+<h3 data-i18n="aboutHighlight3Title">A future shaped by youth</h3>
+<p data-i18n="aboutHighlight3Text">Digital creativity gives a new generation a meaningful way to serve Jordan.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="about-videos">
+
+<div class="about-videos-head">
+<div class="eyebrow" data-i18n="aboutVideosEyebrow">HERITAGE IN MOTION</div>
+<h3 data-i18n="aboutVideosTitle">See the story come alive</h3>
+<p data-i18n="aboutVideosDescription">A curated collection of moments that brings the spirit of Madaba and this national project closer to you.</p>
+</div>
+
+<div class="about-video-grid">
+
+<article class="about-video-card">
+<div class="about-video-frame">
+<video controls preload="metadata" playsinline>
+<source src="videos/madaba-heritage-01.mp4" type="video/mp4">
+</video>
+<span class="about-video-number">01</span>
+</div>
+<div class="about-video-body">
+<h4 data-i18n="aboutVideo1Title">A heritage moment</h4>
+<p data-i18n="aboutVideo1Text">A visual introduction to the story we carry.</p>
+</div>
+</article>
+
+<article class="about-video-card">
+<div class="about-video-frame">
+<video controls preload="metadata" playsinline>
+<source src="videos/madaba-heritage-03.mp4" type="video/mp4">
+</video>
+<span class="about-video-number">02</span>
+</div>
+<div class="about-video-body">
+<h4 data-i18n="aboutVideo2Title">The place speaks</h4>
+<p data-i18n="aboutVideo2Text">Discover another perspective on the land, memory and identity behind the project.</p>
+</div>
+</article>
+
+<article class="about-video-card">
+<div class="about-video-frame">
+<video controls preload="metadata" playsinline>
+<source src="videos/madaba-heritage-04.mp4" type="video/mp4">
+</video>
+<span class="about-video-number">03</span>
+</div>
+<div class="about-video-body">
+<h4 data-i18n="aboutVideo3Title">From stone to story</h4>
+<p data-i18n="aboutVideo3Text">A final moment in this visual journey through Jordanian heritage.</p>
+</div>
+</article>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SITES ================= -->
+
+<section class="sites" id="sites">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow" data-i18n="sitesEyebrow">HERITAGE SITES</div>
+
+<h2 data-i18n="sitesTitle">Explore Madaba</h2>
+
+<p data-i18n="sitesDescription">
+Discover ancient churches, mosaics and archaeological landmarks.
+</p>
+
+</div>
+
+<div class="search-area">
+
+<input
+type="text"
+id="searchInput"
+data-i18n-placeholder="searchPlaceholder"
+placeholder="Search archaeological sites..."
+>
+
+<button onclick="searchSites()">🔎</button>
+
+</div>
+
+<div class="site-grid" id="siteGrid"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ADS ================= -->
+
+<section class="ads" id="ads">
+<div class="container">
+<div class="ads-head">
+<div class="eyebrow" data-i18n="adsEyebrow">COMMUNITY ADS</div>
+<h2 data-i18n="adsTitle">Ads</h2>
+<p data-i18n="adsDescription">Share an announcement, service, event or opportunity with visitors.</p>
+</div>
+
+<div id="adsAddCard" class="ads-add-card" role="button" tabindex="0" onclick="openAdModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAdModal();}">
+<div class="ads-plus">+</div>
+<div class="ads-add-label" data-i18n="addAd">Add Ad</div>
+</div>
+
+<div id="adsGrid" class="ads-grid"></div>
+<div id="adsEmpty" class="ads-empty" data-i18n="adsEmpty">No ads have been published yet.</div>
+</div>
+</section>
+
+
+<!-- ================= AR SCANNER ================= -->
+
+<section class="scanner" id="scanner">
+
+<div class="container">
+
+<div class="scanner-box">
+
+<div class="scanner-content">
+
+<div class="eyebrow" data-i18n="scannerEyebrow">AUGMENTED REALITY</div>
+
+<h2 data-i18n="scannerTitle">
+Explore Madaba Through Your Camera
+</h2>
+
+<p data-i18n="scannerDescription">
+The future version of the platform can use your phone camera to recognize the surroundings and display arrows, directions, historical information and digital objects over the real world.
+</p>
+
+<div class="scanner-steps">
+
+<div class="scanner-step">
+<div class="step-number">1</div>
+<span data-i18n="step1">Open the camera experience.</span>
+</div>
+
+<div class="scanner-step">
+<div class="step-number">2</div>
+<span data-i18n="step2">Point your camera at the archaeological site.</span>
+</div>
+
+<div class="scanner-step">
+<div class="step-number">3</div>
+<span data-i18n="step3">Follow digital directions and discover information.</span>
+</div>
+
+</div>
+
+<button class="btn" style="margin-top:25px;background:var(--primary);color:white;" onclick="startScanner()">
+📷 <span data-i18n="launchScanner">Launch Scanner</span>
+</button>
+
+</div>
+
+<div class="camera">
+
+<div class="camera-frame">
+<div class="scan-line"></div>
+</div>
+
+<div class="camera-text" id="cameraStatus" data-i18n="cameraReady">
+Camera experience ready
+</div>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow" data-i18n="contactEyebrow">GET IN TOUCH</div>
+
+<h2 data-i18n="contactTitle">Plan Your Visit</h2>
+
+<p data-i18n="contactDescription">
+Have a question about Madaba or want to suggest a heritage site?
+</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>📍 <span data-i18n="contactLocation">Madaba, Jordan</span></h3>
+
+<p data-i18n="contactText">
+Explore the archaeological heart of Madaba and discover its historic churches, mosaics and cultural landmarks.
+</p>
+
+<br>
+
+<p>📧 info@madabaheritage.com</p>
+<p>📞 +962 6 000 0000</p>
+
+</div>
+
+<div class="contact-card">
+
+<form class="contact-form" onsubmit="sendMessage(event)">
+
+<input type="text" required data-i18n-placeholder="namePlaceholder" placeholder="Your name">
+
+<input type="email" required data-i18n-placeholder="emailPlaceholder" placeholder="Email address">
+
+<textarea required data-i18n-placeholder="messagePlaceholder" placeholder="Your message"></textarea>
+
+<button class="btn" style="background:var(--primary);color:white;" type="submit">
+<span data-i18n="sendMessage">Send Message</span>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- ================= ADD AD MODAL ================= -->
+<div class="ad-modal" id="adModal" aria-hidden="true">
+<div class="ad-modal-content" role="dialog" aria-modal="true" aria-labelledby="adModalTitle">
+<button class="ad-close" type="button" aria-label="Close" data-i18n-aria-label="closeAd" onclick="closeAdModal()">×</button>
+<h2 id="adModalTitle" data-i18n="addAdTitle">Add Ad</h2>
+<p data-i18n="addAdDescription">Enter the details below, then select Publish to post the ad on the Ads page.</p>
+<form class="ad-form" id="adForm" onsubmit="publishAd(event)">
+<input id="adTitle" type="text" required data-i18n-placeholder="adTitlePlaceholder" placeholder="Ad title">
+<textarea id="adDescription" required data-i18n-placeholder="adDescriptionPlaceholder" placeholder="Ad description"></textarea>
+<input id="adPrice" type="text" data-i18n-placeholder="adPricePlaceholder" placeholder="Price (optional)">
+<input id="adLocation" type="text" data-i18n-placeholder="adLocationPlaceholder" placeholder="Location (optional)">
+<input id="adContact" type="text" data-i18n-placeholder="adContactPlaceholder" placeholder="Contact details (optional)">
+<input id="adImage" type="url" data-i18n-placeholder="adImagePlaceholder" placeholder="Image URL (optional)">
+<div class="ad-form-actions">
+<button class="btn" type="button" onclick="closeAdModal()" data-i18n="cancelAd">Cancel</button>
+<button class="btn" type="submit" style="background:var(--primary);color:white;" data-i18n="publishAd">Publish</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-col">
+
+<h3>🏛️ الحجر يتحدث بتاريخ الأردن</h3>
+
+<p data-i18n="footerText">
+A digital gateway to the archaeological and cultural heritage of Madaba, Jordan.
+</p>
+
+</div>
+
+<div class="footer-col">
+
+<h3 data-i18n="footerExplore">Explore</h3>
+
+<a href="#about" data-i18n="navAbout">About</a>
+<a href="#sites" data-i18n="navSites">Sites</a>
+<a href="#scanner" data-i18n="navScanner">AR Scanner</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3 data-i18n="footerInformation">Information</h3>
+
+<a href="#contact" data-i18n="navContact">Contact</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3 data-i18n="footerFollow">Follow</h3>
+
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">YouTube</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 الحجر يتحدث بتاريخ الأردن. <span data-i18n="rights">All rights reserved.</span>
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= SITE MODAL ================= -->
+
+<div class="modal" id="siteModal">
+
+<div class="modal-content">
+
+<button class="close-modal" onclick="closeModal()">×</button>
+
+<img id="modalImage" src="" alt="Site">
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalDescription"></p>
+
+<div class="info-grid">
+
+<div class="info-item">
+<strong data-i18n="locationLabel">Location</strong>
+<span id="modalLocation"></span>
+</div>
+
+<div class="info-item">
+<strong data-i18n="periodLabel">Period</strong>
+<span id="modalPeriod"></span>
+</div>
+
+<div class="info-item">
+<strong data-i18n="typeLabel">Type</strong>
+<span id="modalType"></span>
+</div>
+
+</div>
+
+<a id="modalMap" target="_blank" class="btn" style="background:var(--primary);color:white;">
+📍 <span data-i18n="openMap">Open in Google Maps</span>
+</a>
+
+</div>
+</div>
+
+
+<script>
+
+/* =========================================================
+   الحجر يتحدث بتاريخ الأردن
+   WEBSITE DATA
+   ========================================================= */
+
+function placeholderImage(title, subtitle, startColor, endColor){
+const escapeXml=value=>String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&apos;");
+
+const svg=`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="${escapeXml(title)} placeholder">
+<defs>
+<linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="${startColor}"/>
+<stop offset="100%" stop-color="${endColor}"/>
+</linearGradient>
+</defs>
+<rect width="1000" height="600" fill="url(#background)"/>
+<circle cx="820" cy="125" r="74" fill="rgba(255,255,255,.18)"/>
+<path d="M0 485 L185 300 L315 405 L470 245 L690 450 L810 340 L1000 515 V600 H0 Z" fill="rgba(38,25,15,.28)"/>
+<path d="M0 530 L230 365 L360 445 L540 325 L735 485 L860 390 L1000 520 V600 H0 Z" fill="rgba(255,236,202,.2)"/>
+<g fill="none" stroke="rgba(255,255,255,.7)" stroke-width="8">
+<path d="M445 385 V245 H555 V385"/>
+<path d="M420 245 L500 185 L580 245"/>
+<path d="M475 385 V305 H525 V385"/>
+</g>
+<rect x="45" y="470" width="910" height="2" fill="rgba(255,255,255,.4)"/>
+<text x="500" y="525" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="2">${escapeXml(title.toUpperCase())}</text>
+<text x="500" y="562" text-anchor="middle" fill="rgba(255,255,255,.82)" font-family="Arial,sans-serif" font-size="18">${escapeXml(subtitle)}</text>
+</svg>`;
+
+return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+const placeholderImages={
+hero:placeholderImage("الحجر ينطق بتاريخ ارض الأردن","Photo placeholder • replace with your hero image","#4d3422","#c49a6c"),
+church:placeholderImage("St. George's Church","Church • Madaba","#7a5637","#d8b17d"),
+park:placeholderImage("Madaba Archaeological Park","Archaeological site • Madaba","#536b52","#b5a47f"),
+apostles:placeholderImage("Church of the Apostles","Church • Madaba","#6d4f3a","#c49a6c"),
+palace:placeholderImage("Burnt Palace","Archaeological complex • Madaba","#5a4030","#a98255"),
+nebo:placeholderImage("Mount Nebo","Historical site • Jordan","#536b52","#d1ae76"),
+haret:placeholderImage("Haret Jdoudna","Cultural area • Old Madaba","#76533a","#b99772"),
+generic:placeholderImage("الحجر ينطق  بتاريخ ارض  الأردن","Replace this placeholder with your image","#7a5637","#a98255")
+};
+
+const sites = [
+
+{
+id:1,
+name:{
+en:"St. George's Church",
+ar:"كنيسة القديس جورج",
+fr:"Église Saint-Georges",
+es:"Iglesia de San Jorge",
+de:"St.-Georgs-Kirche",
+it:"Chiesa di San Giorgio",
+tr:"Aziz George Kilisesi"
+},
+description:{
+en:"Famous for its Byzantine mosaic map of the Holy Land.",
+ar:"تشتهر بخريطة الفسيفساء البيزنطية للأرض المقدسة.",
+fr:"Célèbre pour sa carte en mosaïque byzantine de la Terre Sainte.",
+es:"Famosa por su mapa de mosaico bizantino de Tierra Santa.",
+de:"Berühmt für ihre byzantinische Mosaikkarte des Heiligen Landes.",
+it:"Famosa per la sua mappa a mosaico bizantina della Terra Santa.",
+tr:"Kutsal Topraklar'ın Bizans mozaik haritasıyla ünlüdür."
+},
+location:"Madaba",
+period:"Byzantine",
+type:"Church",
+image:"https://commons.wikimedia.org/wiki/Special:FilePath/Facade_of_St._George_Church_in_Madaba_P1090160.JPG?width=1600",
+map:"https://maps.google.com/?q=St+George's+Church+Madaba"
+},
+
+{
+id:2,
+name:{
+en:"Madaba Archaeological Park",
+ar:"منتزه مادبا الأثري",
+fr:"Parc archéologique de Madaba",
+es:"Parque Arqueológico de Madaba",
+de:"Archäologischer Park Madaba",
+it:"Parco Archeologico di Madaba",
+tr:"Madaba Arkeoloji Parkı"
+},
+description:{
+en:"A fascinating archaeological area containing ancient mosaics and ruins.",
+ar:"منطقة أثرية مميزة تضم فسيفساء وآثاراً تاريخية.",
+fr:"Une zone archéologique fascinante avec des mosaïques et des ruines anciennes.",
+es:"Una fascinante zona arqueológica con mosaicos y ruinas antiguas.",
+de:"Ein faszinierendes archäologisches Gebiet mit antiken Mosaiken und Ruinen.",
+it:"Un'affascinante area archeologica con mosaici e antiche rovine.",
+tr:"Antik mozaikler ve kalıntılar içeren büyüleyici bir arkeolojik alan."
+},
+location:"Central Madaba",
+period:"Roman / Byzantine",
+type:"Archaeological Site",
+image:"https://commons.wikimedia.org/wiki/Special:FilePath/Madaba_Archeological_Park_Exterior_Ruins.jpg?width=1600",
+map:"https://maps.google.com/?q=Madaba+Archaeological+Park"
+},
+
+{
+id:3,
+name:{
+en:"Church of the Apostles",
+ar:"كنيسة الرسل",
+fr:"Église des Apôtres",
+es:"Iglesia de los Apóstoles",
+de:"Apostelkirche",
+it:"Chiesa degli Apostoli",
+tr:"Havariler Kilisesi"
+},
+description:{
+en:"A historic church famous for its beautiful mosaic floor.",
+ar:"كنيسة تاريخية تشتهر بأرضيتها الفسيفسائية الجميلة.",
+fr:"Une église historique célèbre pour son magnifique sol en mosaïque.",
+es:"Una iglesia histórica famosa por su hermoso suelo de mosaico.",
+de:"Eine historische Kirche mit einem beeindruckenden Mosaikboden.",
+it:"Una chiesa storica famosa per il suo splendido pavimento a mosaico.",
+tr:"Güzel mozaik zeminiyle ünlü tarihi bir kilise."
+},
+location:"Madaba",
+period:"Byzantine",
+type:"Church",
+image:"https://commons.wikimedia.org/wiki/Special:FilePath/Church_of_the_Apostles_(Madaba).jpg?width=1600",
+map:"https://maps.google.com/?q=Church+of+the+Apostles+Madaba"
+},
+
+{
+id:4,
+name:{
+en:"Burnt Palace",
+ar:"القصر المحترق",
+fr:"Palais brûlé",
+es:"Palacio Quemado",
+de:"Verbrannter Palast",
+it:"Palazzo Bruciato",
+tr:"Yanmış Saray"
+},
+description:{
+en:"An important archaeological complex revealing Madaba's ancient urban history.",
+ar:"مجمع أثري مهم يكشف جانباً من تاريخ مادبا العمراني القديم.",
+fr:"Un important complexe archéologique révélant l'histoire urbaine ancienne de Madaba.",
+es:"Un importante complejo arqueológico que revela la historia urbana antigua de Madaba.",
+de:"Ein bedeutender archäologischer Komplex, der die antike Stadtgeschichte Madabas zeigt.",
+it:"Un importante complesso archeologico che racconta la storia urbana antica di Madaba.",
+tr:"Madaba'nın antik şehir tarihini ortaya çıkaran önemli bir arkeolojik kompleks."
+},
+location:"Madaba",
+period:"Byzantine",
+type:"Archaeological Complex",
+image:"https://universes.art/fileadmin/_processed_/2/7/csm_08-IMG_2819-A_93f7071417.jpg",
+map:"https://maps.google.com/?q=Burnt+Palace+Madaba"
+},
+
+{
+id:5,
+name:{
+en:"Mount Nebo",
+ar:"جبل نيبو",
+fr:"Mont Nébo",
+es:"Monte Nebo",
+de:"Berg Nebo",
+it:"Monte Nebo",
+tr:"Nebo Dağı"
+},
+description:{
+en:"A spectacular historical and religious site overlooking the Jordan Valley.",
+ar:"موقع تاريخي وديني مميز يطل على وادي الأردن.",
+fr:"Un site historique et religieux spectaculaire surplombant la vallée du Jourdain.",
+es:"Un espectacular sitio histórico y religioso con vistas al valle del Jordán.",
+de:"Eine beeindruckende historische und religiöse Stätte mit Blick auf das Jordantal.",
+it:"Uno spettacolare sito storico e religioso che domina la Valle del Giordano.",
+tr:"Ürdün Vadisi'ne bakan muhteşem tarihi ve dini bir alan."
+},
+location:"Mount Nebo",
+period:"Ancient / Byzantine",
+type:"Historical Site",
+image:"https://commons.wikimedia.org/wiki/Special:FilePath/Jordan_2021_P093_Mount_Nebo_Brazen_Serpent_Monument.jpg?width=1600",
+map:"https://maps.google.com/?q=Mount+Nebo+Jordan"
+},
+
+{
+id:6,
+name:{
+en:"Haret Jdoudna",
+ar:"حارة جدودنا",
+fr:"Haret Jdoudna",
+es:"Haret Jdoudna",
+de:"Haret Jdoudna",
+it:"Haret Jdoudna",
+tr:"Haret Jdoudna"
+},
+description:{
+en:"A traditional area where visitors can experience Madaba's local atmosphere and heritage.",
+ar:"منطقة تراثية يمكن للزائر فيها تجربة أجواء مادبا المحلية.",
+fr:"Un quartier traditionnel où découvrir l'atmosphère et le patrimoine local de Madaba.",
+es:"Una zona tradicional para experimentar el ambiente y patrimonio local de Madaba.",
+de:"Ein traditionelles Viertel, in dem Besucher die lokale Atmosphäre Madabas erleben können.",
+it:"Un'area tradizionale dove vivere l'atmosfera e il patrimonio locale di Madaba.",
+tr:"Madaba'nın yerel atmosferini ve mirasını deneyimleyebileceğiniz geleneksel bir bölge."
+},
+location:"Old Madaba",
+period:"Modern Heritage",
+type:"Cultural Area",
+image:"https://commons.wikimedia.org/wiki/Special:FilePath/Haret_Jdoudna_Restaurant,_Madaba,_Jordan,_5.01.2010_-_panoramio.jpg?width=1600",
+map:"https://maps.google.com/?q=Haret+Jdoudna+Madaba"
+}
+
+];
+
+
+/* =========================================================
+   TRANSLATIONS
+   ========================================================= */
+
+const translations = {
+
+en:{
+
+brand:"The stone speaks of the history of the land of Jordan",
+navHome:"Home",
+navAbout:"About",
+navSites:"Sites",
+navScanner:"AR Scanner",
+navContact:"Contact",
+
+heroTag:"Madaba, Jordan",
+heroTitle:"The stone speaks of the history of the land of Jordan",
+heroDescription:"Walk through history, discover ancient mosaics, explore archaeological treasures and experience Madaba through a modern digital journey.",
+exploreBtn:"Explore Heritage",
+scanBtn:"Start AR Experience",
+
+experienceEyebrow:"THE EXPERIENCE",
+experienceTitle:"A New Way to Explore History",
+experienceDescription:"The stone speaks of the history of the land of Jordan combines archaeological information with digital technology to create a memorable experience for every visitor.",
+
+feature1Title:"Explore",
+feature1Text:"Discover the most important archaeological sites in Madaba.",
+feature2Title:"Scan",
+feature2Text:"Scan QR codes at historical locations to instantly access information.",
+feature3Title:"7 Languages",
+feature3Text:"Enjoy the entire website in your preferred language.",
+feature4Title:"AR Experience",
+feature4Text:"Experience directions and digital information through your camera.",
+
+aboutEyebrow:"THE STORY WE CARRY",
+aboutTitle:"A homeland told through stone",
+aboutLead:"When Jordanian stone speaks, it tells the story of a homeland born from glory and purpose—a homeland guided by the Hashemites with integrity and devotion.",
+aboutParagraph1:"From Madaba, the bride of Jordanian tourism, and from the depth of our pure soil, the project “الحجر يتحدث بتاريخ الأردن” begins as a digital and national initiative. It affirms that our national identity reaches beyond tourism and heritage, rooted in the enduring values of the Amman Message: moderation, fraternity and shared humanity.",
+aboutParagraph2:"As we take this step, we draw inspiration from the historic Hashemite custodianship of the Islamic and Christian holy sites in Al-Quds Al-Sharif, carried by His Majesty King Abdullah II Ibn Al Hussein with wisdom and courage. His continued support for national and creative initiatives gives our young women and men the confidence to create and innovate, knowing that serving Jordan and its heritage is a natural extension of the dignity and honor carried by the Hashemite family.",
+aboutHighlight1Title:"A national identity",
+aboutHighlight1Text:"Our heritage is more than places to visit; it is a living story of belonging.",
+aboutHighlight2Title:"A living responsibility",
+aboutHighlight2Text:"The project connects Madaba's stones to Jordan's enduring message and identity.",
+aboutHighlight3Title:"A future shaped by youth",
+aboutHighlight3Text:"Digital creativity gives a new generation a meaningful way to serve Jordan.",
+aboutVideosEyebrow:"HERITAGE IN MOTION",
+aboutVideosTitle:"See the story come alive",
+aboutVideosDescription:"A curated collection of moments that brings the spirit of Madaba and this national project closer to you.",
+aboutVideo1Title:"A heritage moment",
+aboutVideo1Text:"A visual introduction to the story we carry.",
+aboutVideo2Title:"A closer look",
+aboutVideo2Text:"A closer visual chapter from الحجر يتحدث بتاريخ الأردن.",
+aboutVideo3Title:"The place speaks",
+aboutVideo3Text:"Discover another perspective on the land, memory and identity behind the project.",
+aboutVideo4Title:"From stone to story",
+aboutVideo4Text:"A final moment in this visual journey through Jordanian heritage.",
+
+sitesEyebrow:"HERITAGE SITES",
+sitesTitle:"Explore Madaba",
+sitesDescription:"Discover ancient churches, mosaics and archaeological landmarks.",
+searchPlaceholder:"Search archaeological sites...",
+
+scannerEyebrow:"AUGMENTED REALITY",
+scannerTitle:"Explore Madaba Through Your Camera",
+scannerDescription:"The future version of the platform can use your phone camera to recognize the surroundings and display arrows, directions, historical information and digital objects over the real world.",
+step1:"Open the camera experience.",
+step2:"Point your camera at the archaeological site.",
+step3:"Follow digital directions and discover information.",
+launchScanner:"Launch Scanner",
+cameraReady:"Camera experience ready",
+scannerStarting:"Camera experience starting...",
+scannerPrompt:"Point your camera at the archaeological site",
+
+contactEyebrow:"GET IN TOUCH",
+contactTitle:"Plan Your Visit",
+contactDescription:"Have a question about Madaba or want to suggest a heritage site?",
+contactLocation:"Madaba, Jordan",
+contactText:"Explore the archaeological heart of Madaba and discover its historic churches, mosaics and cultural landmarks.",
+namePlaceholder:"Your name",
+emailPlaceholder:"Email address",
+messagePlaceholder:"Your message",
+sendMessage:"Send Message",
+messageSent:"Your message has been sent successfully. Thank you!",
+
+footerText:"A digital gateway to the archaeological and cultural heritage of Madaba, Jordan.",
+footerExplore:"Explore",
+footerInformation:"Information",
+footerFollow:"Follow",
+rights:"All rights reserved.",
+
+locationLabel:"Location",
+periodLabel:"Period",
+typeLabel:"Type",
+openMap:"Open in Google Maps",
+viewSite:"View Site"
+
+},
+
+ar:{
+
+brand:"الحجر يتحدث بتاريخ الأردن",
+navHome:"الرئيسية",
+navAbout:"عن مادبا",
+navSites:"المواقع الأثرية",
+navScanner:"الواقع المعزز",
+navContact:"تواصل معنا",
+
+heroTag:"مادبا، الأردن",
+heroTitle:"الحجر يتحدث بتاريخ الأردن",
+heroDescription:"اكتشف تاريخ مادبا، وتأمل الفسيفساء القديمة، واستكشف الكنائس والمواقع الأثرية من خلال تجربة سياحية رقمية حديثة.",
+exploreBtn:"استكشف التراث",
+scanBtn:"ابدأ تجربة الواقع المعزز",
+
+experienceEyebrow:"التجربة",
+experienceTitle:"طريقة جديدة لاكتشاف التاريخ",
+experienceDescription:"يجمع تراث مادبا بين المعلومات الأثرية والتكنولوجيا الحديثة لتقديم تجربة مميزة لكل زائر.",
+
+feature1Title:"استكشف",
+feature1Text:"اكتشف أهم المواقع الأثرية في مادبا.",
+feature2Title:"امسح",
+feature2Text:"امسح رموز QR في المواقع التاريخية للوصول إلى المعلومات مباشرة.",
+feature3Title:"7 لغات",
+feature3Text:"استخدم الموقع بالكامل باللغة التي تفضلها.",
+feature4Title:"الواقع المعزز",
+feature4Text:"شاهد التوجيهات والمعلومات الرقمية من خلال كاميرا هاتفك.",
+
+aboutEyebrow:"حكاية نحملها",
+aboutTitle:"وطنٌ تُروى حكايته من الحجر",
+aboutLead:"حين ينطق الحجر الأردني بحكايته، فإنه يروي قصة وطن وُلد من رحم المجد والرسالة؛ وطناً يقوده الهاشميون بالأمانة والإخلاص.",
+aboutParagraph1:"من عروس السياحة مادبا، ومن عمق ترابنا الطهور، ينطلق مشروع «الحجر يتحدث بتاريخ الأردن» ليؤكد أن هويتنا الوطنية لا تقف عند حدود السياحة والتراث، بل تستند إلى ثوابت راسخة عنوانها رسالة عمّان السمحة التي تُجسّد قيم الاعتدال، والإخاء، والإنسانية جمعاء.",
+aboutParagraph2:"وإذ نخطو هذه الخطوة الرقمية والوطنية، فإننا نستلهم عزمنا من الوصاية الهاشمية التاريخية على المقدسات الإسلامية والمسيحية في القدس الشريف، والتي يؤديها جلالة الملك عبدالله الثاني ابن الحسين المعظم بحكمة وشجاعة، لتحمل أمانة الدفاع عن هوية الأمة ومقدساتها. إن هذا الدعم الملكي السامي المتواصل لكل مبادرة وطنية وإبداعية هو الدفق الذي يمنح شبابنا وشاباتنا القوة لنبدع ونبتكر، واضعين نصب أعيننا أن خدمة الأردن وتراثه هي امتداد طبيعي لرسالة العز والكرامة التي حملها آل هاشم الأطهار.",
+aboutHighlight1Title:"هوية وطنية راسخة",
+aboutHighlight1Text:"فالتراث ليس وجهة للزيارة فحسب، بل حكاية انتماء حيّة تتوارثها الأجيال.",
+aboutHighlight2Title:"أمانة ومسؤولية",
+aboutHighlight2Text:"نصل حجارة مادبا برسالة الأردن الراسخة وقيمه الأصيلة.",
+aboutHighlight3Title:"إبداع يصنع المستقبل",
+aboutHighlight3Text:"نمنح الشباب مساحة رقمية ليخدموا الأردن بموهبة وابتكار.",
+aboutVideosEyebrow:"التراث في حركة",
+aboutVideosTitle:"شاهدوا الحكاية تنبض بالحياة",
+aboutVideosDescription:"مجموعة مختارة من اللحظات التي تقرّب إليكم روح مادبا ورسالة هذا المشروع الوطني.",
+aboutVideo1Title:"لحظة من التراث",
+aboutVideo1Text:"مقدمة بصرية للحكاية التي نحملها.",
+aboutVideo2Title:"نظرة أقرب",
+aboutVideo2Text:"فصل بصري آخر من حكاية تراث مادبا.",
+aboutVideo3Title:"المكان يتحدث",
+aboutVideo3Text:"اكتشفوا زاوية أخرى من الأرض والذاكرة والهوية خلف المشروع.",
+aboutVideo4Title:"من الحجر إلى الحكاية",
+aboutVideo4Text:"محطة أخيرة في هذه الرحلة البصرية عبر التراث الأردني.",
+
+sitesEyebrow:"المواقع التراثية",
+sitesTitle:"استكشف مادبا",
+sitesDescription:"اكتشف الكنائس القديمة والفسيفساء والمواقع الأثرية.",
+searchPlaceholder:"ابحث عن موقع أثري...",
+
+scannerEyebrow:"الواقع المعزز",
+scannerTitle:"استكشف مادبا من خلال كاميرا هاتفك",
+scannerDescription:"يمكن للنسخة المستقبلية من المنصة استخدام كاميرا الهاتف للتعرف على البيئة المحيطة وعرض الأسهم والتوجيهات والمعلومات التاريخية والعناصر الرقمية فوق العالم الحقيقي.",
+step1:"افتح تجربة الكاميرا.",
+step2:"وجّه الكاميرا نحو الموقع الأثري.",
+step3:"اتبع التوجيهات الرقمية واكتشف المعلومات.",
+launchScanner:"تشغيل الماسح",
+cameraReady:"الكاميرا جاهزة للتجربة",
+scannerStarting:"جاري تشغيل تجربة الكاميرا...",
+scannerPrompt:"وجّه الكاميرا نحو الموقع الأثري",
+
+contactEyebrow:"تواصل معنا",
+contactTitle:"خطط لزيارتك",
+contactDescription:"هل لديك سؤال عن مادبا أو ترغب باقتراح موقع تراثي؟",
+contactLocation:"مادبا، الأردن",
+contactText:"استكشف قلب مادبا الأثري واكتشف كنائسها التاريخية وفسيفساءها ومعالمها الثقافية.",
+namePlaceholder:"اسمك",
+emailPlaceholder:"البريد الإلكتروني",
+messagePlaceholder:"رسالتك",
+sendMessage:"إرسال الرسالة",
+messageSent:"تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.",
+
+footerText:"بوابتك الرقمية لاستكشاف التراث الأثري والثقافي في مادبا، الأردن.",
+footerExplore:"استكشف",
+footerInformation:"معلومات",
+footerFollow:"تابعنا",
+rights:"جميع الحقوق محفوظة.",
+
+locationLabel:"الموقع",
+periodLabel:"الفترة",
+typeLabel:"النوع",
+openMap:"فتح في خرائط Google",
+viewSite:"عرض الموقع"
+
+}
+
+};
+
+
+/* =========================================================
+   ADDITIONAL LANGUAGES
+   ========================================================= */
+
+translations.fr={
+brand:"The stone speaks of the history of the land of Jordan",
+navHome:"Accueil",
+navAbout:"À propos",
+navSites:"Sites",
+navScanner:"Scanner AR",
+navContact:"Contact",
+heroTag:"Madaba, Jordanie",
+heroTitle:"Laissez les pierres parler de l’histoire de la Jordanie",
+heroDescription:"Parcourez l'histoire, découvrez les mosaïques anciennes, explorez les trésors archéologiques et vivez Madaba grâce à une expérience numérique moderne.",
+exploreBtn:"Explorer le patrimoine",
+scanBtn:"Commencer l'expérience AR",
+experienceEyebrow:"L'EXPÉRIENCE",
+experienceTitle:"Une nouvelle façon d'explorer l'histoire",
+experienceDescription:"The stone speaks of the history of the land of Jordan associe informations archéologiques et technologie numérique pour créer une expérience mémorable pour chaque visiteur.",
+feature1Title:"Explorer",
+feature1Text:"Découvrez les principaux sites archéologiques de Madaba.",
+feature2Title:"Scanner",
+feature2Text:"Scannez les codes QR sur les sites historiques pour accéder instantanément aux informations.",
+feature3Title:"7 langues",
+feature3Text:"Profitez de tout le site dans la langue de votre choix.",
+feature4Title:"Expérience AR",
+feature4Text:"Découvrez des itinéraires et des informations numériques grâce à votre caméra.",
+aboutEyebrow:"L'HISTOIRE QUE NOUS PORTONS",
+aboutTitle:"Une patrie racontée par la pierre",
+aboutLead:"Lorsque la pierre jordanienne parle, elle raconte l'histoire d'une patrie née de la gloire et de la mission, guidée par les Hachémites avec intégrité et dévouement.",
+aboutParagraph1:"Depuis Madaba, la perle du tourisme jordanien, et depuis la profondeur de notre terre pure, le projet « الحجر يتحدث بتاريخ الأردن » prend vie comme une initiative numérique et nationale. Il affirme que notre identité nationale dépasse le tourisme et le patrimoine, car elle s'enracine dans les valeurs durables du Message d'Amman : modération, fraternité et humanité partagée.",
+aboutParagraph2:"En franchissant cette étape, nous puisons notre détermination dans la tutelle hachémite historique des lieux saints musulmans et chrétiens d'Al-Qods Al-Charif, assumée avec sagesse et courage par Sa Majesté le roi Abdallah II ibn Al-Hussein. Son soutien constant aux initiatives nationales et créatives donne à notre jeunesse la force de créer et d'innover, convaincue que servir la Jordanie et son patrimoine prolonge naturellement le message de dignité et d'honneur porté par les Hachémites.",
+aboutHighlight1Title:"Une identité nationale",
+aboutHighlight1Text:"Notre patrimoine est plus qu'un lieu à visiter : c'est une histoire vivante d'appartenance.",
+aboutHighlight2Title:"Une responsabilité vivante",
+aboutHighlight2Text:"Le projet relie les pierres de Madaba au message durable et à l'identité de la Jordanie.",
+aboutHighlight3Title:"Un avenir porté par la jeunesse",
+aboutHighlight3Text:"La créativité numérique offre à une nouvelle génération une manière concrète de servir la Jordanie.",
+aboutVideosEyebrow:"LE PATRIMOINE EN MOUVEMENT",
+aboutVideosTitle:"Voyez l'histoire prendre vie",
+aboutVideosDescription:"Une sélection de moments qui vous rapproche de l'esprit de Madaba et de ce projet national.",
+aboutVideo1Title:"Un moment de patrimoine",
+aboutVideo1Text:"Une introduction visuelle à l'histoire que nous portons.",
+aboutVideo2Title:"Un regard plus proche",
+aboutVideo2Text:"Un nouveau chapitre visuel du patrimoine de Madaba.",
+aboutVideo3Title:"Le lieu parle",
+aboutVideo3Text:"Découvrez une autre perspective sur la terre, la mémoire et l'identité du projet.",
+aboutVideo4Title:"De la pierre à l'histoire",
+aboutVideo4Text:"Un dernier moment dans ce voyage visuel à travers le patrimoine jordanien.",
+sitesEyebrow:"SITES PATRIMONIAUX",
+sitesTitle:"Explorer Madaba",
+sitesDescription:"Découvrez les anciennes églises, les mosaïques et les monuments archéologiques.",
+searchPlaceholder:"Rechercher un site archéologique...",
+scannerEyebrow:"RÉALITÉ AUGMENTÉE",
+scannerTitle:"Explorez Madaba avec votre caméra",
+scannerDescription:"La future version de la plateforme pourra utiliser la caméra de votre téléphone pour reconnaître son environnement et afficher des flèches, des itinéraires, des informations historiques et des objets numériques dans le monde réel.",
+step1:"Ouvrez l'expérience caméra.",
+step2:"Pointez votre caméra vers le site archéologique.",
+step3:"Suivez les indications numériques et découvrez les informations.",
+launchScanner:"Lancer le scanner",
+cameraReady:"Expérience caméra prête",
+scannerStarting:"Démarrage de l'expérience caméra...",
+scannerPrompt:"Pointez votre caméra vers le site archéologique",
+contactEyebrow:"CONTACTEZ-NOUS",
+contactTitle:"Préparez votre visite",
+contactDescription:"Vous avez une question sur Madaba ou souhaitez suggérer un site patrimonial ?",
+contactLocation:"Madaba, Jordanie",
+contactText:"Explorez le cœur archéologique de Madaba et découvrez ses églises historiques, ses mosaïques et ses monuments culturels.",
+namePlaceholder:"Votre nom",
+emailPlaceholder:"Adresse e-mail",
+messagePlaceholder:"Votre message",
+sendMessage:"Envoyer le message",
+messageSent:"Votre message a été envoyé. Merci de nous avoir contactés !",
+footerText:"Une porte d'entrée numérique vers le patrimoine archéologique et culturel de Madaba, en Jordanie.",
+footerExplore:"Explorer",
+footerInformation:"Informations",
+footerFollow:"Suivez-nous",
+rights:"Tous droits réservés.",
+locationLabel:"Lieu",
+periodLabel:"Période",
+typeLabel:"Type",
+openMap:"Ouvrir dans Google Maps",
+viewSite:"Voir le site"
+};
+
+translations.es={
+brand:"The stone speaks of the history of the land of Jordan",
+navHome:"Inicio",
+navAbout:"Sobre nosotros",
+navSites:"Sitios",
+navScanner:"Escáner AR",
+navContact:"Contacto",
+heroTag:"Madaba, Jordania",
+heroTitle:"Deja que las piedras hablen de la historia de Jordania",
+heroDescription:"Camina por la historia, descubre mosaicos antiguos, explora tesoros arqueológicos y vive Madaba a través de una experiencia digital moderna.",
+exploreBtn:"Explorar el patrimonio",
+scanBtn:"Iniciar experiencia AR",
+experienceEyebrow:"LA EXPERIENCIA",
+experienceTitle:"Una nueva forma de explorar la historia",
+experienceDescription:"The stone speaks of the history of the land of Jordan combina información arqueológica con tecnología digital para crear una experiencia memorable para cada visitante.",
+feature1Title:"Explorar",
+feature1Text:"Descubre los sitios arqueológicos más importantes de Madaba.",
+feature2Title:"Escanear",
+feature2Text:"Escanea códigos QR en lugares históricos para acceder al instante a la información.",
+feature3Title:"7 idiomas",
+feature3Text:"Disfruta de todo el sitio en tu idioma preferido.",
+feature4Title:"Experiencia AR",
+feature4Text:"Disfruta de direcciones e información digital a través de tu cámara.",
+aboutEyebrow:"LA HISTORIA QUE LLEVAMOS",
+aboutTitle:"Una patria contada a través de la piedra",
+aboutLead:"Cuando la piedra jordana habla, cuenta la historia de una patria nacida de la gloria y la misión, guiada por los hachemitas con integridad y entrega.",
+aboutParagraph1:"Desde Madaba, la novia del turismo jordano, y desde lo más profundo de nuestra tierra pura, nace el proyecto «الحجر يتحدث بتاريخ الأردن» como una iniciativa digital y nacional. Afirma que nuestra identidad nacional va más allá del turismo y el patrimonio, pues se apoya en los valores firmes del Mensaje de Ammán: moderación, fraternidad y humanidad compartida.",
+aboutParagraph2:"Al dar este paso, nos inspiramos en la histórica custodia hachemita de los lugares santos islámicos y cristianos de Al-Quds Al-Sharif, asumida con sabiduría y valentía por Su Majestad el rey Abdullah II Ibn Al Hussein. Su apoyo constante a las iniciativas nacionales y creativas da a nuestros jóvenes la fuerza para crear e innovar, sabiendo que servir a Jordania y a su patrimonio es una extensión natural del mensaje de dignidad y honor llevado por la familia hachemita.",
+aboutHighlight1Title:"Una identidad nacional",
+aboutHighlight1Text:"Nuestro patrimonio es más que un lugar para visitar: es una historia viva de pertenencia.",
+aboutHighlight2Title:"Una responsabilidad viva",
+aboutHighlight2Text:"El proyecto conecta las piedras de Madaba con el mensaje y la identidad perdurables de Jordania.",
+aboutHighlight3Title:"Un futuro impulsado por la juventud",
+aboutHighlight3Text:"La creatividad digital ofrece a una nueva generación una forma significativa de servir a Jordania.",
+aboutVideosEyebrow:"EL PATRIMONIO EN MOVIMIENTO",
+aboutVideosTitle:"Mira cómo cobra vida la historia",
+aboutVideosDescription:"Una selección de momentos que acerca el espíritu de Madaba y este proyecto nacional.",
+aboutVideo1Title:"Un momento de patrimonio",
+aboutVideo1Text:"Una introducción visual a la historia que llevamos.",
+aboutVideo2Title:"Una mirada más cercana",
+aboutVideo2Text:"Otro capítulo visual del patrimonio de Madaba.",
+aboutVideo3Title:"El lugar habla",
+aboutVideo3Text:"Descubre otra perspectiva de la tierra, la memoria y la identidad detrás del proyecto.",
+aboutVideo4Title:"De la piedra a la historia",
+aboutVideo4Text:"Un último momento en este viaje visual por el patrimonio jordano.",
+sitesEyebrow:"SITIOS PATRIMONIALES",
+sitesTitle:"Explora Madaba",
+sitesDescription:"Descubre iglesias antiguas, mosaicos y monumentos arqueológicos.",
+searchPlaceholder:"Buscar sitios arqueológicos...",
+scannerEyebrow:"REALIDAD AUMENTADA",
+scannerTitle:"Explora Madaba con tu cámara",
+scannerDescription:"La futura versión de la plataforma podrá usar la cámara de tu teléfono para reconocer el entorno y mostrar flechas, indicaciones, información histórica y objetos digitales sobre el mundo real.",
+step1:"Abre la experiencia de cámara.",
+step2:"Apunta tu cámara al sitio arqueológico.",
+step3:"Sigue las indicaciones digitales y descubre la información.",
+launchScanner:"Iniciar escáner",
+cameraReady:"Experiencia de cámara lista",
+scannerStarting:"Iniciando la experiencia de cámara...",
+scannerPrompt:"Apunta tu cámara al sitio arqueológico",
+contactEyebrow:"PONTE EN CONTACTO",
+contactTitle:"Planifica tu visita",
+contactDescription:"¿Tienes alguna pregunta sobre Madaba o quieres sugerir un sitio patrimonial?",
+contactLocation:"Madaba, Jordania",
+contactText:"Explora el corazón arqueológico de Madaba y descubre sus iglesias históricas, mosaicos y monumentos culturales.",
+namePlaceholder:"Tu nombre",
+emailPlaceholder:"Correo electrónico",
+messagePlaceholder:"Tu mensaje",
+sendMessage:"Enviar mensaje",
+messageSent:"Tu mensaje se ha enviado correctamente. ¡Gracias por contactarnos!",
+footerText:"Una puerta digital al patrimonio arqueológico y cultural de Madaba, Jordania.",
+footerExplore:"Explorar",
+footerInformation:"Información",
+footerFollow:"Síguenos",
+rights:"Todos los derechos reservados.",
+locationLabel:"Ubicación",
+periodLabel:"Período",
+typeLabel:"Tipo",
+openMap:"Abrir en Google Maps",
+viewSite:"Ver sitio"
+};
+
+translations.de={
+brand:"The stone speaks of the history of the land of Jordan",
+navHome:"Startseite",
+navAbout:"Über uns",
+navSites:"Sehenswürdigkeiten",
+navScanner:"AR-Scanner",
+navContact:"Kontakt",
+heroTag:"Madaba, Jordanien",
+heroTitle:"Lass die Steine von Jordaniens Geschichte erzählen",
+heroDescription:"Wandle durch die Geschichte, entdecke antike Mosaike, erkunde archäologische Schätze und erlebe Madaba mit einer modernen digitalen Reise.",
+exploreBtn:"Kulturerbe entdecken",
+scanBtn:"AR-Erlebnis starten",
+experienceEyebrow:"DAS ERLEBNIS",
+experienceTitle:"Eine neue Art, Geschichte zu entdecken",
+experienceDescription:"The stone speaks of the history of the land of Jordan verbindet archäologische Informationen mit digitaler Technologie und schafft so ein besonderes Erlebnis für jeden Besucher.",
+feature1Title:"Entdecken",
+feature1Text:"Entdecke die wichtigsten archäologischen Stätten in Madaba.",
+feature2Title:"Scannen",
+feature2Text:"Scanne QR-Codes an historischen Orten und erhalte sofort Informationen.",
+feature3Title:"7 Sprachen",
+feature3Text:"Nutze die gesamte Website in deiner bevorzugten Sprache.",
+feature4Title:"AR-Erlebnis",
+feature4Text:"Erlebe Wegbeschreibungen und digitale Informationen durch deine Kamera.",
+aboutEyebrow:"DIE GESCHICHTE, DIE WIR TRAGEN",
+aboutTitle:"Eine Heimat, erzählt durch Stein",
+aboutLead:"Wenn jordanischer Stein spricht, erzählt er die Geschichte einer Heimat, die aus Ruhm und Sendung geboren wurde und von den Haschemiten mit Aufrichtigkeit und Hingabe geführt wird.",
+aboutParagraph1:"Aus Madaba, der Perle des jordanischen Tourismus, und aus der Tiefe unserer reinen Erde entsteht das Projekt „الحجر يتحدث بتاريخ الأردن“ als digitale und nationale Initiative. Es bekräftigt, dass unsere nationale Identität über Tourismus und Kulturerbe hinausreicht und in den beständigen Werten der Botschaft von Amman verwurzelt ist: Mäßigung, Brüderlichkeit und gemeinsame Menschlichkeit.",
+aboutParagraph2:"Auf diesem Weg schöpfen wir unsere Entschlossenheit aus der historischen haschemitischen Schirmherrschaft über die islamischen und christlichen heiligen Stätten in Al-Quds Al-Sharif, die Seine Majestät König Abdullah II. Ibn Al Hussein mit Weisheit und Mut wahrnimmt. Seine fortdauernde Unterstützung nationaler und kreativer Initiativen gibt unseren jungen Frauen und Männern die Kraft, zu gestalten und zu innovieren – im Bewusstsein, dass der Dienst an Jordanien und seinem Erbe eine natürliche Fortsetzung der Würde und Ehre ist, die die haschemitische Familie trägt.",
+aboutHighlight1Title:"Eine nationale Identität",
+aboutHighlight1Text:"Unser Kulturerbe ist mehr als ein Ort zum Besuchen – es ist eine lebendige Geschichte der Zugehörigkeit.",
+aboutHighlight2Title:"Eine lebendige Verantwortung",
+aboutHighlight2Text:"Das Projekt verbindet die Steine Madabas mit Jordaniens beständiger Botschaft und Identität.",
+aboutHighlight3Title:"Eine Zukunft durch die Jugend",
+aboutHighlight3Text:"Digitale Kreativität gibt einer neuen Generation eine sinnvolle Möglichkeit, Jordanien zu dienen.",
+aboutVideosEyebrow:"KULTURERBE IN BEWEGUNG",
+aboutVideosTitle:"Erleben Sie, wie die Geschichte lebendig wird",
+aboutVideosDescription:"Eine ausgewählte Sammlung von Momenten, die den Geist Madabas und dieses nationalen Projekts näherbringt.",
+aboutVideo1Title:"Ein Moment des Kulturerbes",
+aboutVideo1Text:"Eine visuelle Einführung in die Geschichte, die wir tragen.",
+aboutVideo2Title:"Ein genauerer Blick",
+aboutVideo2Text:"Ein weiteres visuelles Kapitel des Kulturerbes von Madaba.",
+aboutVideo3Title:"Der Ort spricht",
+aboutVideo3Text:"Entdecken Sie eine weitere Perspektive auf Land, Erinnerung und Identität hinter dem Projekt.",
+aboutVideo4Title:"Vom Stein zur Geschichte",
+aboutVideo4Text:"Ein letzter Moment auf dieser visuellen Reise durch das jordanische Kulturerbe.",
+sitesEyebrow:"KULTURERBESTÄTTEN",
+sitesTitle:"Madaba entdecken",
+sitesDescription:"Entdecke alte Kirchen, Mosaike und archäologische Wahrzeichen.",
+searchPlaceholder:"Archäologische Stätten suchen...",
+scannerEyebrow:"ERWEITERTE REALITÄT",
+scannerTitle:"Erkunde Madaba mit deiner Kamera",
+scannerDescription:"Die zukünftige Version der Plattform kann die Kamera deines Telefons nutzen, um die Umgebung zu erkennen und Pfeile, Wegbeschreibungen, historische Informationen und digitale Objekte in der realen Welt anzuzeigen.",
+step1:"Öffne das Kameraerlebnis.",
+step2:"Richte deine Kamera auf die archäologische Stätte.",
+step3:"Folge den digitalen Hinweisen und entdecke Informationen.",
+launchScanner:"Scanner starten",
+cameraReady:"Kameraerlebnis bereit",
+scannerStarting:"Kameraerlebnis wird gestartet...",
+scannerPrompt:"Richte deine Kamera auf die archäologische Stätte",
+contactEyebrow:"KONTAKT",
+contactTitle:"Plane deinen Besuch",
+contactDescription:"Hast du eine Frage zu Madaba oder möchtest du eine Kulturerbestätte vorschlagen?",
+contactLocation:"Madaba, Jordanien",
+contactText:"Erkunde das archäologische Herz von Madaba und entdecke historische Kirchen, Mosaike und kulturelle Wahrzeichen.",
+namePlaceholder:"Dein Name",
+emailPlaceholder:"E-Mail-Adresse",
+messagePlaceholder:"Deine Nachricht",
+sendMessage:"Nachricht senden",
+messageSent:"Deine Nachricht wurde erfolgreich gesendet. Vielen Dank!",
+footerText:"Ein digitales Tor zum archäologischen und kulturellen Erbe von Madaba, Jordanien.",
+footerExplore:"Entdecken",
+footerInformation:"Informationen",
+footerFollow:"Folgen",
+rights:"Alle Rechte vorbehalten.",
+locationLabel:"Ort",
+periodLabel:"Zeitraum",
+typeLabel:"Typ",
+openMap:"In Google Maps öffnen",
+viewSite:"Stätte ansehen"
+};
+
+translations.it={
+brand:"The stone speaks of the history of the land of Jordan",
+navHome:"Home",
+navAbout:"Chi siamo",
+navSites:"Siti",
+navScanner:"Scanner AR",
+navContact:"Contatti",
+heroTag:"Madaba, Giordania",
+heroTitle:"Lascia che le pietre raccontino la storia della Giordania",
+heroDescription:"Cammina nella storia, scopri antichi mosaici, esplora tesori archeologici e vivi Madaba attraverso un moderno viaggio digitale.",
+exploreBtn:"Esplora il patrimonio",
+scanBtn:"Inizia l'esperienza AR",
+experienceEyebrow:"L'ESPERIENZA",
+experienceTitle:"Un nuovo modo di esplorare la storia",
+experienceDescription:"The stone speaks of the history of the land of Jordan combina informazioni archeologiche e tecnologia digitale per creare un'esperienza memorabile per ogni visitatore.",
+feature1Title:"Esplora",
+feature1Text:"Scopri i siti archeologici più importanti di Madaba.",
+feature2Title:"Scansiona",
+feature2Text:"Scansiona i codici QR nei luoghi storici per accedere subito alle informazioni.",
+feature3Title:"7 lingue",
+feature3Text:"Usa l'intero sito nella lingua che preferisci.",
+feature4Title:"Esperienza AR",
+feature4Text:"Scopri indicazioni e informazioni digitali attraverso la fotocamera.",
+aboutEyebrow:"LA STORIA CHE PORTIAMO CON NOI",
+aboutTitle:"Una patria raccontata dalla pietra",
+aboutLead:"Quando la pietra giordana parla, racconta la storia di una patria nata dalla gloria e dalla missione, guidata dagli hashemiti con integrità e dedizione.",
+aboutParagraph1:"Da Madaba, la perla del turismo giordano, e dal cuore della nostra terra pura, nasce il progetto «الحجر يتحدث بتاريخ الأردن» come iniziativa digitale e nazionale. Esso afferma che la nostra identità nazionale va oltre il turismo e il patrimonio, radicandosi nei valori duraturi del Messaggio di Amman: moderazione, fraternità e umanità condivisa.",
+aboutParagraph2:"Mentre compiamo questo passo, traiamo la nostra determinazione dalla storica custodia hashemita dei luoghi santi islamici e cristiani di Al-Quds Al-Sharif, esercitata con saggezza e coraggio da Sua Maestà il re Abdullah II Ibn Al Hussein. Il suo continuo sostegno alle iniziative nazionali e creative dà ai nostri giovani la forza di creare e innovare, sapendo che servire la Giordania e il suo patrimonio è la naturale continuazione del messaggio di dignità e onore portato dalla famiglia hashemita.",
+aboutHighlight1Title:"Un'identità nazionale",
+aboutHighlight1Text:"Il nostro patrimonio è più di un luogo da visitare: è una storia viva di appartenenza.",
+aboutHighlight2Title:"Una responsabilità viva",
+aboutHighlight2Text:"Il progetto collega le pietre di Madaba al messaggio e all'identità duraturi della Giordania.",
+aboutHighlight3Title:"Un futuro guidato dai giovani",
+aboutHighlight3Text:"La creatività digitale offre a una nuova generazione un modo significativo per servire la Giordania.",
+aboutVideosEyebrow:"IL PATRIMONIO IN MOVIMENTO",
+aboutVideosTitle:"Guarda la storia prendere vita",
+aboutVideosDescription:"Una raccolta curata di momenti che avvicina lo spirito di Madaba e di questo progetto nazionale.",
+aboutVideo1Title:"Un momento di patrimonio",
+aboutVideo1Text:"Un'introduzione visiva alla storia che portiamo con noi.",
+aboutVideo2Title:"Uno sguardo più vicino",
+aboutVideo2Text:"Un altro capitolo visivo del patrimonio di Madaba.",
+aboutVideo3Title:"Il luogo parla",
+aboutVideo3Text:"Scopri un'altra prospettiva sulla terra, la memoria e l'identità dietro il progetto.",
+aboutVideo4Title:"Dalla pietra alla storia",
+aboutVideo4Text:"Un ultimo momento in questo viaggio visivo attraverso il patrimonio giordano.",
+sitesEyebrow:"SITI DEL PATRIMONIO",
+sitesTitle:"Esplora Madaba",
+sitesDescription:"Scopri antiche chiese, mosaici e monumenti archeologici.",
+searchPlaceholder:"Cerca siti archeologici...",
+scannerEyebrow:"REALTÀ AUMENTATA",
+scannerTitle:"Esplora Madaba con la tua fotocamera",
+scannerDescription:"La futura versione della piattaforma potrà usare la fotocamera del telefono per riconoscere l'ambiente e mostrare frecce, indicazioni, informazioni storiche e oggetti digitali nel mondo reale.",
+step1:"Apri l'esperienza della fotocamera.",
+step2:"Punta la fotocamera verso il sito archeologico.",
+step3:"Segui le indicazioni digitali e scopri le informazioni.",
+launchScanner:"Avvia scanner",
+cameraReady:"Esperienza fotocamera pronta",
+scannerStarting:"Avvio dell'esperienza fotocamera...",
+scannerPrompt:"Punta la fotocamera verso il sito archeologico",
+contactEyebrow:"CONTATTACI",
+contactTitle:"Pianifica la tua visita",
+contactDescription:"Hai una domanda su Madaba o vuoi suggerire un sito del patrimonio?",
+contactLocation:"Madaba, Giordania",
+contactText:"Esplora il cuore archeologico di Madaba e scopri le sue chiese storiche, i mosaici e i monumenti culturali.",
+namePlaceholder:"Il tuo nome",
+emailPlaceholder:"Indirizzo e-mail",
+messagePlaceholder:"Il tuo messaggio",
+sendMessage:"Invia messaggio",
+messageSent:"Il tuo messaggio è stato inviato. Grazie per averci contattato!",
+footerText:"Una porta digitale verso il patrimonio archeologico e culturale di Madaba, in Giordania.",
+footerExplore:"Esplora",
+footerInformation:"Informazioni",
+footerFollow:"Seguici",
+rights:"Tutti i diritti riservati.",
+locationLabel:"Posizione",
+periodLabel:"Periodo",
+typeLabel:"Tipo",
+openMap:"Apri in Google Maps",
+viewSite:"Vedi sito"
+};
+
+translations.tr={
+brand:"The stone speaks of the history of the land of Jordan",
+navHome:"Ana Sayfa",
+navAbout:"Hakkımızda",
+navSites:"Mekânlar",
+navScanner:"AR Tarayıcı",
+navContact:"İletişim",
+heroTag:"Madaba, Ürdün",
+heroTitle:"Taşlar Ürdün’ün tarihini anlatsın",
+heroDescription:"Tarihin içinde yürüyün, antik mozaikleri keşfedin, arkeolojik hazineleri inceleyin ve Madaba'yı modern bir dijital yolculukla deneyimleyin.",
+exploreBtn:"Mirası Keşfet",
+scanBtn:"AR Deneyimini Başlat",
+experienceEyebrow:"DENEYİM",
+experienceTitle:"Tarihi Keşfetmenin Yeni Yolu",
+experienceDescription:"The stone speaks of the history of the land of Jordan, arkeolojik bilgileri dijital teknolojiyle birleştirerek her ziyaretçi için unutulmaz bir deneyim sunar.",
+feature1Title:"Keşfet",
+feature1Text:"Madaba'daki en önemli arkeolojik alanları keşfedin.",
+feature2Title:"Tara",
+feature2Text:"Bilgiye anında ulaşmak için tarihi alanlardaki QR kodlarını tarayın.",
+feature3Title:"7 Dil",
+feature3Text:"Web sitesinin tamamını tercih ettiğiniz dilde kullanın.",
+feature4Title:"AR Deneyimi",
+feature4Text:"Yönlendirmeleri ve dijital bilgileri kameranız üzerinden deneyimleyin.",
+aboutEyebrow:"TAŞIDIĞIMIZ HİKÂYE",
+aboutTitle:"Taşla anlatılan bir vatan",
+aboutLead:"Ürdün taşı konuştuğunda, şan ve yücelikten doğmuş, Haşimi hanedanı tarafından dürüstlük ve özveriyle yönetilen bir vatanın hikâyesini anlatır.",
+aboutParagraph1:"Ürdün turizminin gelini Madaba'dan ve temiz toprağımızın derinliklerinden, “الحجر يتحدث بتاريخ الأردن” projesi dijital ve ulusal bir girişim olarak doğuyor. Bu proje, ulusal kimliğimizin turizm ve miras sınırlarının ötesine geçtiğini; ölçülülük, kardeşlik ve ortak insanlık değerlerini somutlaştıran Amman Mesajı'nın kalıcı ilkelerine dayandığını vurgular.",
+aboutParagraph2:"Bu adımı atarken gücümüzü, Kudüs-i Şerif'teki İslami ve Hristiyan kutsal mekânlar üzerindeki tarihî Haşimi vesayetinden alıyoruz. Bu emaneti Majesteleri Kral II. Abdullah İbn el-Hüseyin bilgelik ve cesaretle taşıyor. Ulusal ve yaratıcı girişimlere verdiği sürekli destek, gençlerimize üretme ve yenilik yapma gücü veriyor; Ürdün'e ve mirasına hizmet etmenin, Haşimi ailesinin taşıdığı onur ve şeref mesajının doğal bir devamı olduğuna inanıyoruz.",
+aboutHighlight1Title:"Ulusal bir kimlik",
+aboutHighlight1Text:"Mirasımız yalnızca ziyaret edilecek yerlerden ibaret değil; canlı bir aidiyet hikâyesidir.",
+aboutHighlight2Title:"Yaşayan bir sorumluluk",
+aboutHighlight2Text:"Proje, Madaba'nın taşlarını Ürdün'ün kalıcı mesajı ve kimliğiyle buluşturuyor.",
+aboutHighlight3Title:"Gençlerin şekillendirdiği gelecek",
+aboutHighlight3Text:"Dijital yaratıcılık, yeni bir nesle Ürdün'e hizmet etmek için anlamlı bir alan açıyor.",
+aboutVideosEyebrow:"HAREKETTEKİ MİRAS",
+aboutVideosTitle:"Hikâyenin canlanışını izleyin",
+aboutVideosDescription:"Madaba'nın ruhunu ve bu ulusal projeyi size daha yakından hissettiren seçilmiş anlar.",
+aboutVideo1Title:"Mirastan bir an",
+aboutVideo1Text:"Taşıdığımız hikâyeye görsel bir giriş.",
+aboutVideo2Title:"Daha yakından bir bakış",
+aboutVideo2Text:"Madaba mirasından başka bir görsel bölüm.",
+aboutVideo3Title:"Mekân konuşuyor",
+aboutVideo3Text:"Projenin ardındaki toprak, hafıza ve kimliğe farklı bir açıdan bakın.",
+aboutVideo4Title:"Taştan hikâyeye",
+aboutVideo4Text:"Ürdün mirası boyunca bu görsel yolculuktan son bir an.",
+sitesEyebrow:"MİRAS ALANLARI",
+sitesTitle:"Madaba'yı Keşfet",
+sitesDescription:"Antik kiliseleri, mozaikleri ve arkeolojik eserleri keşfedin.",
+searchPlaceholder:"Arkeolojik alanlarda ara...",
+scannerEyebrow:"ARTIRILMIŞ GERÇEKLİK",
+scannerTitle:"Madaba'yı Kameranızla Keşfedin",
+scannerDescription:"Platformun gelecekteki sürümü, çevreyi tanımak ve gerçek dünyanın üzerinde oklar, yönlendirmeler, tarihi bilgiler ve dijital nesneler göstermek için telefon kameranızı kullanabilir.",
+step1:"Kamera deneyimini açın.",
+step2:"Kameranızı arkeolojik alana doğrultun.",
+step3:"Dijital yönlendirmeleri izleyin ve bilgileri keşfedin.",
+launchScanner:"Tarayıcıyı Başlat",
+cameraReady:"Kamera deneyimi hazır",
+scannerStarting:"Kamera deneyimi başlatılıyor...",
+scannerPrompt:"Kameranızı arkeolojik alana doğrultun",
+contactEyebrow:"İLETİŞİME GEÇİN",
+contactTitle:"Ziyaretinizi Planlayın",
+contactDescription:"Madaba hakkında bir sorunuz mu var veya bir miras alanı önermek mi istiyorsunuz?",
+contactLocation:"Madaba, Ürdün",
+contactText:"Madaba'nın arkeolojik kalbini keşfedin; tarihi kiliselerini, mozaiklerini ve kültürel eserlerini görün.",
+namePlaceholder:"Adınız",
+emailPlaceholder:"E-posta adresi",
+messagePlaceholder:"Mesajınız",
+sendMessage:"Mesaj Gönder",
+messageSent:"Mesajınız başarıyla gönderildi. Teşekkür ederiz!",
+footerText:"Ürdün, Madaba'nın arkeolojik ve kültürel mirasına açılan dijital kapı.",
+footerExplore:"Keşfet",
+footerInformation:"Bilgi",
+footerFollow:"Bizi Takip Edin",
+rights:"Tüm hakları saklıdır.",
+locationLabel:"Konum",
+periodLabel:"Dönem",
+typeLabel:"Tür",
+openMap:"Google Haritalar'da aç",
+viewSite:"Alanı Görüntüle"
+};
+
+
+/* ================= ADS TRANSLATIONS ================= */
+Object.assign(translations.en,{navAds:"Ads",adsEyebrow:"COMMUNITY ADS",adsTitle:"Ads",adsDescription:"Share an announcement, service, event or opportunity with visitors.",addAd:"Add Ad",adsEmpty:"No ads have been published yet.",addAdTitle:"Add Ad",addAdDescription:"Enter the details below, then select Publish to post the ad on the Ads page.",closeAd:"Close",cancelAd:"Cancel",publishAd:"Publish",adTitlePlaceholder:"Ad title",adDescriptionPlaceholder:"Ad description",adPricePlaceholder:"Price (optional)",adLocationPlaceholder:"Location (optional)",adContactPlaceholder:"Contact details (optional)",adImagePlaceholder:"Image URL (optional)"});
+Object.assign(translations.ar,{navAds:"الإعلانات",adsEyebrow:"إعلانات المجتمع",adsTitle:"الإعلانات",adsDescription:"شارك إعلانًا أو خدمة أو فعالية أو فرصة مع زوار الموقع.",addAd:"إضافة إعلان",adsEmpty:"لا توجد إعلانات منشورة حاليًا.",addAdTitle:"إضافة إعلان",addAdDescription:"أدخل تفاصيل الإعلان ثم اضغط نشر لإضافته إلى صفحة الإعلانات.",closeAd:"إغلاق",cancelAd:"إلغاء",publishAd:"نشر",adTitlePlaceholder:"عنوان الإعلان",adDescriptionPlaceholder:"وصف الإعلان",adPricePlaceholder:"السعر (اختياري)",adLocationPlaceholder:"الموقع (اختياري)",adContactPlaceholder:"بيانات التواصل (اختياري)",adImagePlaceholder:"رابط الصورة (اختياري)"});
+Object.assign(translations.fr,{navAds:"Annonces",adsEyebrow:"ANNONCES DE LA COMMUNAUTÉ",adsTitle:"Annonces",adsDescription:"Partagez une annonce, un service, un événement ou une opportunité avec les visiteurs.",addAd:"Ajouter une annonce",adsEmpty:"Aucune annonce n’a encore été publiée.",addAdTitle:"Ajouter une annonce",addAdDescription:"Saisissez les détails puis sélectionnez Publier pour afficher l’annonce sur la page des annonces.",closeAd:"Fermer",cancelAd:"Annuler",publishAd:"Publier",adTitlePlaceholder:"Titre de l’annonce",adDescriptionPlaceholder:"Description de l’annonce",adPricePlaceholder:"Prix (facultatif)",adLocationPlaceholder:"Lieu (facultatif)",adContactPlaceholder:"Coordonnées (facultatif)",adImagePlaceholder:"URL de l’image (facultatif)"});
+Object.assign(translations.es,{navAds:"Anuncios",adsEyebrow:"ANUNCIOS DE LA COMUNIDAD",adsTitle:"Anuncios",adsDescription:"Comparte un anuncio, servicio, evento u oportunidad con los visitantes.",addAd:"Añadir anuncio",adsEmpty:"Aún no se han publicado anuncios.",addAdTitle:"Añadir anuncio",addAdDescription:"Introduce los detalles y selecciona Publicar para mostrar el anuncio en la página de anuncios.",closeAd:"Cerrar",cancelAd:"Cancelar",publishAd:"Publicar",adTitlePlaceholder:"Título del anuncio",adDescriptionPlaceholder:"Descripción del anuncio",adPricePlaceholder:"Precio (opcional)",adLocationPlaceholder:"Ubicación (opcional)",adContactPlaceholder:"Datos de contacto (opcional)",adImagePlaceholder:"URL de imagen (opcional)"});
+Object.assign(translations.de,{navAds:"Anzeigen",adsEyebrow:"COMMUNITY-ANZEIGEN",adsTitle:"Anzeigen",adsDescription:"Teile eine Ankündigung, einen Service, eine Veranstaltung oder eine Gelegenheit mit Besuchern.",addAd:"Anzeige hinzufügen",adsEmpty:"Noch keine Anzeigen veröffentlicht.",addAdTitle:"Anzeige hinzufügen",addAdDescription:"Gib die Details ein und wähle Veröffentlichen, um die Anzeige auf der Anzeigenseite zu veröffentlichen.",closeAd:"Schließen",cancelAd:"Abbrechen",publishAd:"Veröffentlichen",adTitlePlaceholder:"Anzeigentitel",adDescriptionPlaceholder:"Anzeigenbeschreibung",adPricePlaceholder:"Preis (optional)",adLocationPlaceholder:"Ort (optional)",adContactPlaceholder:"Kontaktdaten (optional)",adImagePlaceholder:"Bild-URL (optional)"});
+Object.assign(translations.it,{navAds:"Annunci",adsEyebrow:"ANNUNCI DELLA COMUNITÀ",adsTitle:"Annunci",adsDescription:"Condividi un annuncio, un servizio, un evento o un'opportunità con i visitatori.",addAd:"Aggiungi annuncio",adsEmpty:"Nessun annuncio è stato ancora pubblicato.",addAdTitle:"Aggiungi annuncio",addAdDescription:"Inserisci i dettagli e seleziona Pubblica per mostrare l'annuncio nella pagina Annunci.",closeAd:"Chiudi",cancelAd:"Annulla",publishAd:"Pubblica",adTitlePlaceholder:"Titolo dell'annuncio",adDescriptionPlaceholder:"Descrizione dell'annuncio",adPricePlaceholder:"Prezzo (facoltativo)",adLocationPlaceholder:"Luogo (facoltativo)",adContactPlaceholder:"Contatti (facoltativo)",adImagePlaceholder:"URL immagine (facoltativo)"});
+Object.assign(translations.tr,{navAds:"İlanlar",adsEyebrow:"TOPLULUK İLANLARI",adsTitle:"İlanlar",adsDescription:"Ziyaretçilerle bir duyuru, hizmet, etkinlik veya fırsat paylaşın.",addAd:"İlan Ekle",adsEmpty:"Henüz yayınlanmış ilan yok.",addAdTitle:"İlan Ekle",addAdDescription:"Bilgileri girin ve ilanı İlanlar sayfasında yayınlamak için Yayınla'yı seçin.",closeAd:"Kapat",cancelAd:"İptal",publishAd:"Yayınla",adTitlePlaceholder:"İlan başlığı",adDescriptionPlaceholder:"İlan açıklaması",adPricePlaceholder:"Fiyat (isteğe bağlı)",adLocationPlaceholder:"Konum (isteğe bağlı)",adContactPlaceholder:"İletişim bilgileri (isteğe bağlı)",adImagePlaceholder:"Görsel URL'si (isteğe bağlı)"});
+
+const siteLabels={
+Madaba:{
+en:"Madaba",ar:"مادبا",fr:"Madaba",es:"Madaba",de:"Madaba",it:"Madaba",tr:"Madaba"
+},
+"Central Madaba":{
+en:"Central Madaba",ar:"وسط مادبا",fr:"Centre de Madaba",es:"Centro de Madaba",de:"Zentrum von Madaba",it:"Centro di Madaba",tr:"Madaba Merkez"
+},
+"Mount Nebo":{
+en:"Mount Nebo",ar:"جبل نيبو",fr:"Mont Nébo",es:"Monte Nebo",de:"Berg Nebo",it:"Monte Nebo",tr:"Nebo Dağı"
+},
+"Old Madaba":{
+en:"Old Madaba",ar:"مادبا القديمة",fr:"Vieille Madaba",es:"Madaba antigua",de:"Alt-Madaba",it:"Antica Madaba",tr:"Eski Madaba"
+},
+Byzantine:{
+en:"Byzantine",ar:"بيزنطي",fr:"Byzantin",es:"Bizantino",de:"Byzantinisch",it:"Bizantino",tr:"Bizans"
+},
+"Roman / Byzantine":{
+en:"Roman / Byzantine",ar:"روماني / بيزنطي",fr:"Romain / byzantin",es:"Romano / bizantino",de:"Römisch / byzantinisch",it:"Romano / bizantino",tr:"Roma / Bizans"
+},
+"Ancient / Byzantine":{
+en:"Ancient / Byzantine",ar:"قديم / بيزنطي",fr:"Antique / byzantin",es:"Antiguo / bizantino",de:"Antik / byzantinisch",it:"Antico / bizantino",tr:"Antik / Bizans"
+},
+"Modern Heritage":{
+en:"Modern Heritage",ar:"تراث حديث",fr:"Patrimoine moderne",es:"Patrimonio moderno",de:"Modernes Kulturerbe",it:"Patrimonio moderno",tr:"Modern Miras"
+},
+Church:{
+en:"Church",ar:"كنيسة",fr:"Église",es:"Iglesia",de:"Kirche",it:"Chiesa",tr:"Kilise"
+},
+"Archaeological Site":{
+en:"Archaeological Site",ar:"موقع أثري",fr:"Site archéologique",es:"Sitio arqueológico",de:"Archäologische Stätte",it:"Sito archeologico",tr:"Arkeolojik Alan"
+},
+"Archaeological Complex":{
+en:"Archaeological Complex",ar:"مجمع أثري",fr:"Complexe archéologique",es:"Complejo arqueológico",de:"Archäologischer Komplex",it:"Complesso archeologico",tr:"Arkeolojik Kompleks"
+},
+"Historical Site":{
+en:"Historical Site",ar:"موقع تاريخي",fr:"Site historique",es:"Sitio histórico",de:"Historische Stätte",it:"Sito storico",tr:"Tarihi Alan"
+},
+"Cultural Area":{
+en:"Cultural Area",ar:"منطقة ثقافية",fr:"Zone culturelle",es:"Zona cultural",de:"Kulturgebiet",it:"Area culturale",tr:"Kültürel Alan"
+}
+};
+
+function localizeSiteValue(value){
+return siteLabels[value]?.[currentLanguage] || value;
+}
+
+
+/* =========================================================
+   CURRENT LANGUAGE
+   ========================================================= */
+
+let currentLanguage =
+localStorage.getItem("madabaLanguage") || "en";
+
+
+/* =========================================================
+   APPLY LANGUAGE
+   ========================================================= */
+
+function applyLanguage(){
+
+const lang = currentLanguage;
+
+document.documentElement.lang=lang;
+
+document.documentElement.dir =
+lang==="ar" ? "rtl" : "ltr";
+
+document.getElementById("languageSelect").value=lang;
+
+document.querySelectorAll("[data-i18n]").forEach(element=>{
+
+const key=element.getAttribute("data-i18n");
+
+if(translations[lang] && translations[lang][key]){
+element.textContent=translations[lang][key];
+}
+
+});
+
+document.querySelectorAll("[data-i18n-placeholder]").forEach(element=>{
+
+const key=element.getAttribute("data-i18n-placeholder");
+
+if(translations[lang] && translations[lang][key]){
+element.placeholder=translations[lang][key];
+}
+
+});
+
+document.querySelectorAll("[data-i18n-aria-label]").forEach(element=>{
+const key=element.getAttribute("data-i18n-aria-label");
+if(translations[lang] && translations[lang][key]) element.setAttribute("aria-label",translations[lang][key]);
+});
+
+renderSites();
+renderAds();
+
+}
+
+
+/* =========================================================
+   LANGUAGE SWITCHER
+   ========================================================= */
+
+document.getElementById("languageSelect")
+.addEventListener("change",function(){
+
+currentLanguage=this.value;
+
+localStorage.setItem("madabaLanguage",currentLanguage);
+
+applyLanguage();
+
+});
+
+
+/* =========================================================
+   RENDER SITES
+   ========================================================= */
+
+function renderSites(list=sites){
+
+const grid=document.getElementById("siteGrid");
+
+grid.innerHTML="";
+
+list.forEach(site=>{
+
+const card=document.createElement("article");
+
+card.className="site-card";
+
+card.innerHTML=`
+
+<div class="site-image">
+
+<img src="${site.image}" alt="${site.name[currentLanguage]}" onerror="this.onerror=null;this.src='${placeholderImages.generic}'">
+
+<div class="site-badge">🏛️ ${localizeSiteValue(site.type)}</div>
+
+</div>
+
+<div class="site-body">
+
+<h3>${site.name[currentLanguage]}</h3>
+
+<p>${site.description[currentLanguage]}</p>
+
+<div class="site-meta">
+
+<span>📍 ${localizeSiteValue(site.location)}</span>
+<span>★ 4.8</span>
+
+</div>
+
+<button class="view-btn" onclick="openSite(${site.id})">
+${translations[currentLanguage].viewSite}
+</button>
+
+</div>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function searchSites(){
+
+const input=
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+if(!input){
+
+renderSites();
+
+return;
+
+}
+
+const results=sites.filter(site=>{
+
+return (
+
+site.name[currentLanguage]
+.toLowerCase()
+.includes(input)
+
+);
+
+});
+
+renderSites(results);
+
+}
+
+
+/* =========================================================
+   LIVE SEARCH
+   ========================================================= */
+
+document.getElementById("searchInput")
+.addEventListener("input",searchSites);
+
+
+/* =========================================================
+   SITE MODAL
+   ========================================================= */
+
+function openSite(id){
+
+const site=sites.find(s=>s.id===id);
+
+if(!site) return;
+
+document.getElementById("modalImage").src=site.image;
+
+document.getElementById("modalTitle").textContent=
+site.name[currentLanguage];
+
+document.getElementById("modalDescription").textContent=
+site.description[currentLanguage];
+
+document.getElementById("modalLocation").textContent=
+localizeSiteValue(site.location);
+
+document.getElementById("modalPeriod").textContent=
+localizeSiteValue(site.period);
+
+document.getElementById("modalType").textContent=
+localizeSiteValue(site.type);
+
+document.getElementById("modalMap").href=
+site.map;
+
+document.getElementById("siteModal")
+.classList.add("active");
+
+}
+
+
+function closeModal(){
+
+document.getElementById("siteModal")
+.classList.remove("active");
+
+}
+
+
+document.getElementById("siteModal")
+.addEventListener("click",function(e){
+
+if(e.target===this){
+
+closeModal();
+
+}
+
+});
+
+
+
+/* =========================================================
+   ADS
+   ========================================================= */
+let publishedAds=JSON.parse(localStorage.getItem("madabaAds")||"[]");
+function openAdModal(){const modal=document.getElementById("adModal");modal.classList.add("show");modal.setAttribute("aria-hidden","false");setTimeout(()=>document.getElementById("adTitle").focus(),50);}
+function closeAdModal(){const modal=document.getElementById("adModal");modal.classList.remove("show");modal.setAttribute("aria-hidden","true");}
+function escapeAdText(value){const div=document.createElement("div");div.textContent=value??"";return div.innerHTML;}
+function renderAds(){
+ const grid=document.getElementById("adsGrid"),empty=document.getElementById("adsEmpty"); if(!grid||!empty)return;
+ grid.innerHTML=publishedAds.map(ad=>{
+   const image=ad.image?escapeAdText(ad.image):"";
+   const imageMarkup=image?`<img class="ad-image" src="${image}" alt="${escapeAdText(ad.title)}" onerror="this.style.display='none'">`:`<div class="ad-image" aria-hidden="true"></div>`;
+   return `<article class="ad-card">${imageMarkup}<div class="ad-body"><h3>${escapeAdText(ad.title)}</h3><p class="ad-description">${escapeAdText(ad.description).replace(/\n/g,"<br>")}</p><div class="ad-meta">${ad.price?`<span class="ad-price">💰 ${escapeAdText(ad.price)}</span>`:""}${ad.location?`<span>📍 ${escapeAdText(ad.location)}</span>`:""}${ad.contact?`<span>📞 ${escapeAdText(ad.contact)}</span>`:""}</div></div></article>`;
+ }).join("");
+ empty.style.display=publishedAds.length?"none":"block";
+}
+function publishAd(event){
+ event.preventDefault();
+ const ad={id:Date.now(),title:document.getElementById("adTitle").value.trim(),description:document.getElementById("adDescription").value.trim(),price:document.getElementById("adPrice").value.trim(),location:document.getElementById("adLocation").value.trim(),contact:document.getElementById("adContact").value.trim(),image:document.getElementById("adImage").value.trim()};
+ publishedAds.unshift(ad);localStorage.setItem("madabaAds",JSON.stringify(publishedAds));event.target.reset();closeAdModal();renderAds();document.getElementById("ads").scrollIntoView({behavior:"smooth"});
+}
+document.getElementById("adModal")?.addEventListener("click",function(event){if(event.target===this)closeAdModal();});
+document.addEventListener("keydown",function(event){if(event.key==="Escape")closeAdModal();});
+renderAds();
+
+/* =========================================================
+   SCANNER
+   ========================================================= */
+
+function startScanner(){
+
+const status=document.getElementById("cameraStatus");
+
+status.textContent=translations[currentLanguage].scannerStarting;
+
+setTimeout(()=>{
+
+status.textContent=translations[currentLanguage].scannerPrompt;
+
+},1800);
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+function sendMessage(event){
+
+event.preventDefault();
+
+alert(translations[currentLanguage].messageSent);
+
+event.target.reset();
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+function toggleMenu(){
+
+document.getElementById("navLinks")
+.classList.toggle("show");
+
+}
+
+
+/* Close mobile menu after click */
+
+document.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+document.getElementById("navLinks")
+.classList.remove("show");
+
+});
+
+});
+
+/* =========================================================
+   HERO BACKGROUND SLIDER
+   15 Jordan Archaeological Sites
+   Change every 4 seconds
+   ========================================================= */
+const heroSlideImages = [
+    // 1. Petra
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jordan-18B-035%20-%20High%20Place%20of%20Sacrifice.jpg",
+
+    // 2. Jerash
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/20100921%20gerasa79.JPG",
+
+    // 3. Umm Qais / Gadara
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abila%20%28Decapolis%29.jpg",
+
+    // 4. Qasr Amra
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Amra%20%28South%20View%29.jpg",
+
+    // 5. Umm Al-Jimal
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Umm%20al%20Jimal.jpg",
+
+    // 6. Ajloun Castle
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/04%20Ajloun%20Castle%20Trail%20-%20The%20Castle%20-%20panoramio.jpg",
+
+    // 7. Al-Hasa Castle
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al%20Hasa%20Castle.jpg",
+
+    // 8. Al-Qastal Castle
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al%20Qastal%20Castle%20%28Interior%29.jpg",
+
+    // 9. Qasr Kharana
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Al-Kharanah%20%28Interior%29.jpg",
+
+    // 10. Qasr Al-Mshatta
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Al-Mshatta%20%28Close%20Up%20of%20Ruins%29.jpg",
+
+    // 11. Qasr Aseikhim
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Aseikhim.jpg",
+
+    // 12. Qasr Azraq
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Azraq%20%28Outer%20View%29.jpg",
+
+    // 13. Qasr Bashir
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Bashir.jpg",
+
+    // 14. Qasr Burqu
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qasr%20Burqu%E2%80%99%20and%20Lake.jpg",
+
+    // 15. Umm ar-Rasas
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Umm%20ar-Rasas%20at%20Roman%20Fortress%20SE%20corner%202870.jpg"
+];
+
+const heroSlider = document.getElementById("heroSlider");
+
+const heroSlides = heroSlideImages.map(imageUrl => {
+    const slide = document.createElement("div");
+    slide.className = "hero-slide";
+    slide.style.backgroundImage = `url("${imageUrl}")`;
+    heroSlider.appendChild(slide);
+    return slide;
+});
+
+let activeSlide = 0;
+
+heroSlides[activeSlide].classList.add("active");
+
+setInterval(() => {
+    heroSlides[activeSlide].classList.remove("active");
+
+    activeSlide = (activeSlide + 1) % heroSlides.length;
+
+    heroSlides[activeSlide].classList.add("active");
+}, 4000);
+/* =========================================================
+   IMAGE PLACEHOLDERS + INITIALIZE
+   ========================================================= */
+
+["modalImage"].forEach(id=>{
+const image=document.getElementById(id);
+image.addEventListener("error",function(){
+this.onerror=null;
+this.src=placeholderImages.generic;
+});
+});
+
+applyLanguage();
+
+</script>
+
+</body>
+</html>
