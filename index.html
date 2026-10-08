@@ -163,6 +163,72 @@
             transform: scale(0.97);
         }
 
+
+        /* CAMERA PERMISSION CONFIRMATION */
+        #cameraPermissionModal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        #cameraPermissionCard {
+            width: min(100%, 420px);
+            padding: 26px 22px;
+            border-radius: 22px;
+            text-align: center;
+            color: #fff;
+            background: rgba(28, 28, 28, 0.97);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+        }
+
+        #cameraPermissionTitle {
+            margin: 0 0 12px;
+            font-size: 23px;
+            line-height: 1.4;
+        }
+
+        #cameraPermissionText {
+            margin: 0 0 22px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cameraPermissionActions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .cameraPermissionActions button {
+            flex: 1;
+            min-height: 48px;
+            border: 0;
+            border-radius: 13px;
+            padding: 12px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #cameraPermissionYes {
+            background: #fff;
+            color: #171717;
+        }
+
+        #cameraPermissionNo {
+            background: #454545;
+            color: #fff;
+        }
+
         /* =========================
            LANGUAGE
         ========================== */
@@ -274,37 +340,55 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-/* =========================
+        /* =========================
            AR INFORMATION
         ========================== */
 
         #ui-container {
+
             position: fixed;
-            top: 20px; /* جعلناها في الأعلى لتجنب تداخل الأسفل */
+
+            bottom: 30px;
+
             left: 50%;
+
             transform: translateX(-50%);
+
             z-index: 10;
+
             text-align: center;
+
             background: rgba(0, 0, 0, 0.65);
-            padding: 12px 20px;
+
+            padding: 15px 25px;
+
             border-radius: 12px;
+
             color: #fff;
+
             backdrop-filter: blur(5px);
+
             display: none;
+
             max-width: 90%;
-            width: 90%;
         }
 
         #ui-container h1 {
-            font-size: 16px;
-            margin: 0 0 5px 0;
+
+            font-size: 18px;
+
+            margin: 0 0 10px 0;
         }
 
         #ui-container p {
-            font-size: 13px;
+
+            font-size: 14px;
+
             margin: 0;
+
             color: #ddd;
         }
+
         /* =========================
            MESSAGE
         ========================== */
@@ -343,23 +427,34 @@
         ========================== */
 
         #backButton {
+
             position: fixed;
-            bottom: 20px; /* تثبيت زر الرجوع في أسفل الشاشة بوضوح */
+
+            bottom: 25px;
+
             left: 50%;
+
             transform: translateX(-50%);
+
             z-index: 30;
+
             border: none;
-            background: rgba(0, 0, 0, 0.75);
+
+            background: rgba(0, 0, 0, 0.70);
+
             color: white;
-            padding: 10px 25px;
+
+            padding: 12px 25px;
+
             border-radius: 30px;
+
             cursor: pointer;
+
             display: none;
+
             backdrop-filter: blur(8px);
-            font-size: 14px;
         }
 
-    
         /* =========================
            AR SCENE
         ========================== */
@@ -390,9 +485,9 @@
 
     <div id="ui-container">
 
-        <h1>خريطة مادبا الحية</h1>
+        <h1 id="uiTitle">خريطة مادبا الحية</h1>
 
-        <p>
+        <p id="uiDesc">
             وجه الكاميرا نحو خريطة مادبا الفسيفسائية لتفعيل التجربة
         </p>
 
@@ -635,6 +730,18 @@
 
     </section>
 
+    <!-- CAMERA PERMISSION CONFIRMATION -->
+    <div id="cameraPermissionModal" role="dialog" aria-modal="true" aria-labelledby="cameraPermissionTitle">
+        <div id="cameraPermissionCard">
+            <h2 id="cameraPermissionTitle">Allow camera access?</h2>
+            <p id="cameraPermissionText">Living Madaba needs access to your camera to show the augmented-reality experience.</p>
+            <div class="cameraPermissionActions">
+                <button id="cameraPermissionNo" type="button">Not now</button>
+                <button id="cameraPermissionYes" type="button">Yes, continue</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- MESSAGE -->
 
@@ -658,6 +765,9 @@
 
             en: {
 
+                uiTitle: 'Living Madaba Map',
+                uiDesc: 'Point your camera at the Madaba mosaic map',
+
                 title:
                     "The Stone Speaks: A Story of the Land of Jordan",
 
@@ -666,6 +776,11 @@
 
                 start:
                     "Start Experience",
+
+                permissionTitle: 'Allow camera access?',
+                permissionText: 'Living Madaba needs access to your camera to show the augmented-reality experience. When you select Yes, your browser will ask you to allow camera access.',
+                permissionYes: 'Yes, continue',
+                permissionNo: 'Not now',
 
                 language:
                     "🌐 English",
@@ -699,6 +814,9 @@
 
             ar: {
 
+                uiTitle: 'خريطة مادبا الحية',
+                uiDesc: 'وجه الكاميرا نحو خريطة مادبا الفسيفسائية',
+
                 title:
                     "الحجر يتحدث بحكاية أرض الأردن",
 
@@ -707,6 +825,11 @@
 
                 start:
                     "ابدأ التجربة",
+
+                permissionTitle: 'هل تسمح باستخدام الكاميرا؟',
+                permissionText: 'يحتاج موقع مادبا الحية إلى استخدام كاميرا هاتفك لعرض تجربة الواقع المعزز. عند الضغط على نعم، سيطلب المتصفح منك السماح باستخدام الكاميرا.',
+                permissionYes: 'نعم، متابعة',
+                permissionNo: 'ليس الآن',
 
                 language:
                     "🌐 العربية",
@@ -740,6 +863,9 @@
 
             es: {
 
+                uiTitle: 'Mapa Vivo de Madaba',
+                uiDesc: 'Apunta la cámara al mapa de mosaico',
+
                 title:
                     "La piedra habla: una historia de la tierra de Jordania",
 
@@ -748,6 +874,11 @@
 
                 start:
                     "Iniciar experiencia",
+
+                permissionTitle: '¿Permitir el acceso a la cámara?',
+                permissionText: 'Living Madaba necesita la cámara para mostrar la experiencia de realidad aumentada. Al pulsar Sí, el navegador te pedirá permiso.',
+                permissionYes: 'Sí, continuar',
+                permissionNo: 'Ahora no',
 
                 language:
                     "🌐 Español",
@@ -781,6 +912,9 @@
 
             fr: {
 
+                uiTitle: 'Carte Vivante de Madaba',
+                uiDesc: 'Pointez la caméra vers la carte en mosaïque',
+
                 title:
                     "La pierre raconte une histoire de la terre de Jordanie",
 
@@ -789,6 +923,11 @@
 
                 start:
                     "Commencer l'expérience",
+
+                permissionTitle: 'Autoriser l’accès à la caméra ?',
+                permissionText: 'Living Madaba a besoin de la caméra pour afficher l’expérience de réalité augmentée. En appuyant sur Oui, le navigateur vous demandera l’autorisation.',
+                permissionYes: 'Oui, continuer',
+                permissionNo: 'Pas maintenant',
 
                 language:
                     "🌐 Français",
@@ -822,6 +961,9 @@
 
             de: {
 
+                uiTitle: 'Lebendiges Madaba',
+                uiDesc: 'Richten Sie die Kamera auf die Mosaikkarte',
+
                 title:
                     "Der Stein erzählt die Geschichte des Landes Jordanien",
 
@@ -830,6 +972,11 @@
 
                 start:
                     "Erlebnis starten",
+
+                permissionTitle: 'Kamerazugriff erlauben?',
+                permissionText: 'Living Madaba benötigt die Kamera für das Augmented-Reality-Erlebnis. Wenn Sie auf Ja tippen, fragt der Browser nach Ihrer Erlaubnis.',
+                permissionYes: 'Ja, fortfahren',
+                permissionNo: 'Nicht jetzt',
 
                 language:
                     "🌐 Deutsch",
@@ -863,6 +1010,9 @@
 
             it: {
 
+                uiTitle: 'Mappa Viva di Madaba',
+                uiDesc: 'Punta la fotocamera sulla mappa a mosaico',
+
                 title:
                     "La pietra racconta la storia della terra di Giordania",
 
@@ -871,6 +1021,11 @@
 
                 start:
                     "Inizia l'esperienza",
+
+                permissionTitle: 'Consentire l’accesso alla fotocamera?',
+                permissionText: 'Living Madaba ha bisogno della fotocamera per mostrare l’esperienza di realtà aumentata. Premendo Sì, il browser chiederà il permesso.',
+                permissionYes: 'Sì, continua',
+                permissionNo: 'Non ora',
 
                 language:
                     "🌐 Italiano",
@@ -904,6 +1059,9 @@
 
             ru: {
 
+                uiTitle: 'Живая карта Мадабы',
+                uiDesc: 'Наведите камеру на мозаичную карту Мадабы',
+
                 title:
                     "Камень рассказывает историю земли Иордании",
 
@@ -912,6 +1070,11 @@
 
                 start:
                     "Начать путешествие",
+
+                permissionTitle: 'Разрешить доступ к камере?',
+                permissionText: 'Для работы дополненной реальности Living Madaba нужна камера. После нажатия «Да» браузер запросит разрешение на доступ к камере.',
+                permissionYes: 'Да, продолжить',
+                permissionNo: 'Не сейчас',
 
                 language:
                     "🌐 Русский",
@@ -976,6 +1139,17 @@
         const startButton =
             document.getElementById("startButton");
 
+        const cameraPermissionModal =
+            document.getElementById("cameraPermissionModal");
+        const cameraPermissionTitle =
+            document.getElementById("cameraPermissionTitle");
+        const cameraPermissionText =
+            document.getElementById("cameraPermissionText");
+        const cameraPermissionYes =
+            document.getElementById("cameraPermissionYes");
+        const cameraPermissionNo =
+            document.getElementById("cameraPermissionNo");
+
         const languageButton =
             document.getElementById("languageButton");
 
@@ -987,6 +1161,9 @@
 
         const uiContainer =
             document.getElementById("ui-container");
+
+        const uiTitle = document.getElementById("uiTitle");
+        const uiDesc = document.getElementById("uiDesc");
 
 
         const bellsSound =
@@ -1102,11 +1279,19 @@
             startButton.innerText =
                 text.start;
 
+            cameraPermissionTitle.innerText = text.permissionTitle;
+            cameraPermissionText.innerText = text.permissionText;
+            cameraPermissionYes.innerText = text.permissionYes;
+            cameraPermissionNo.innerText = text.permissionNo;
+
             languageButton.innerText =
                 text.language;
 
             backButton.innerText =
                 text.back;
+
+            if (uiTitle && text.uiTitle) uiTitle.innerText = text.uiTitle;
+            if (uiDesc && text.uiDesc) uiDesc.innerText = text.uiDesc;
 
 
             languageMenu.style.display =
@@ -1609,14 +1794,22 @@
         }
 
 
-        startButton.addEventListener(
-            "click",
-            function () {
+        startButton.addEventListener("click", function () {
+            // Show the site's explanation first; the browser's own permission
+            // prompt will still appear after the visitor chooses to continue.
+            cameraPermissionModal.style.display = "flex";
+        });
 
-                startAR();
+        cameraPermissionYes.addEventListener("click", function () {
+            cameraPermissionModal.style.display = "none";
+            // Calling startAR directly from this tap lets the browser permission
+            // request occur as part of the user's interaction.
+            startAR();
+        });
 
-            }
-        );
+        cameraPermissionNo.addEventListener("click", function () {
+            cameraPermissionModal.style.display = "none";
+        });
 
 
         /* =====================================================
