@@ -274,55 +274,37 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* =========================
+/* =========================
            AR INFORMATION
         ========================== */
 
         #ui-container {
-
             position: fixed;
-
-            bottom: 30px;
-
+            top: 20px; /* جعلناها في الأعلى لتجنب تداخل الأسفل */
             left: 50%;
-
             transform: translateX(-50%);
-
             z-index: 10;
-
             text-align: center;
-
             background: rgba(0, 0, 0, 0.65);
-
-            padding: 15px 25px;
-
+            padding: 12px 20px;
             border-radius: 12px;
-
             color: #fff;
-
             backdrop-filter: blur(5px);
-
             display: none;
-
             max-width: 90%;
+            width: 90%;
         }
 
         #ui-container h1 {
-
-            font-size: 18px;
-
-            margin: 0 0 10px 0;
+            font-size: 16px;
+            margin: 0 0 5px 0;
         }
 
         #ui-container p {
-
-            font-size: 14px;
-
+            font-size: 13px;
             margin: 0;
-
             color: #ddd;
         }
-
         /* =========================
            MESSAGE
         ========================== */
@@ -361,34 +343,23 @@
         ========================== */
 
         #backButton {
-
             position: fixed;
-
-            bottom: 25px;
-
+            bottom: 20px; /* تثبيت زر الرجوع في أسفل الشاشة بوضوح */
             left: 50%;
-
             transform: translateX(-50%);
-
             z-index: 30;
-
             border: none;
-
-            background: rgba(0, 0, 0, 0.70);
-
+            background: rgba(0, 0, 0, 0.75);
             color: white;
-
-            padding: 12px 25px;
-
+            padding: 10px 25px;
             border-radius: 30px;
-
             cursor: pointer;
-
             display: none;
-
             backdrop-filter: blur(8px);
+            font-size: 14px;
         }
 
+    
         /* =========================
            AR SCENE
         ========================== */
